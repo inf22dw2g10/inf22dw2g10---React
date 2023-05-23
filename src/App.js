@@ -12,11 +12,7 @@ const App = () =>{
     },[])
     return(
         <>
-            <form method="POST" action="http://localhost:5000/users/login">
-                <input type="email" name="email" id="" />
-                <input type="password" name="password" id="" />
-                <input type="submit" value="Submeter" />
-            </form>
+
         </>
     )
 
