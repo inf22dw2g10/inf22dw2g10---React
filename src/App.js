@@ -1,21 +1,31 @@
-import { useEffect } from "react"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-const App = () =>{
-    
-    useEffect(()=>{
-        const fetchData = async()=>{
-            const res = await fetch('http://localhost:5000/games/')
-            const data =await res.json()
-            console.log(data)
-        }
-        fetchData()
-    },[])
-    return(
-        <>
+import LoginPage from './components/LoginPage';
+import RegisterPage from './components/RegisterPage';
+import HomePage from './components/HomePage';
+import AboutPage from './components/AboutPage';
+import GameDetails from './components/GameDetails';
+import GameList from './components/GameList';
+import NotFound from './components/NotFound';
 
-        </>
-    )
-
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/register" component={RegisterPage} />
+        <Route path="/gamedetails" component={GameDetails} />
+        <Route path="/gamelist" component={GameList} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
+  );
 }
 
-export default App
+ReactDOM.render(<App />, document.getElementById('root'));
+
+export default App;
