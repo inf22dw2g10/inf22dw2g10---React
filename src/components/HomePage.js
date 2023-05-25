@@ -13,7 +13,7 @@ const HomePage = () => {
 
   React.useEffect(() => {
     if (redirectToLogin) {
-      history.push('/login');
+      history.push('/github');
       window.location.reload()
     }
   }, [redirectToLogin, history]);

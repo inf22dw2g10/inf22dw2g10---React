@@ -7,16 +7,35 @@ const RegisterPage = () => {
   const [password, setPassword] = useState('');
   const history = useHistory();
   const [redirectToLogin, setRedirectToLogin] = React.useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleRegister = () => {
-    // Perform registration logic here
-    // You can send the registration data to an API or perform any other necessary actions
-    console.log('Registration data:', { username, email, password });
-    // Clear form fields after registration
-    setUsername('');
-    setEmail('');
-    setPassword('');
+    fetch('http://localhost:3000/users/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, email, password }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log('Registration successful');
+          // Perform any necessary actions on successful registration
+          // Clear form fields after registration
+          setUsername('');
+          setEmail('');
+          setPassword('');
+        } else {
+          throw new Error('Registration failed');
+        }
+      })
+      .catch((error) => {
+        console.error('Network error:', error);
+        setErrorMessage('Network error occurred. Please try again later.');
+      });
   };
+  
+  
 
   const handleGoToLogin = () => {
     setRedirectToLogin(true);
@@ -25,13 +44,14 @@ const RegisterPage = () => {
   React.useEffect(() => {
     if (redirectToLogin) {
       history.push('/login');
-      window.location.reload()
+      window.location.reload();
     }
   }, [redirectToLogin, history]);
 
   return (
     <div>
       <h1>Register Page</h1>
+      {errorMessage && <p>{errorMessage}</p>}
       <form>
         <label>
           Username:
