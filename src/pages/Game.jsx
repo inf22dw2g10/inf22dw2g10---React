@@ -6,7 +6,7 @@ const Game = () => {
     const { gameId } = useParams();
 
     const { data: game, isLoading,isError, error } = useQuery("game", async() => {
-        return axios.get(`http://localhost:3000/games/${gameId}`).then((res) => res.data);
+        return axios.get(`http://localhost:5000/games/${gameId}`).then((res) => res.data);
     },{ 
         retry: false
     });

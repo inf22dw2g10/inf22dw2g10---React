@@ -10,7 +10,7 @@ const Store = () => {
   const [searchedGames, setSearchedGames] = useState(null);
 
   const { data: games, isLoading, error } = useQuery("games", () => {
-    return axios.get("http://localhost:3000/games/").then((res) => res.data);
+    return axios.get("http://localhost:5000/games/").then((res) => res.data);
   },{ 
     retry: false
   });
@@ -30,7 +30,7 @@ const Store = () => {
     
     if(searchInput !== "" ){
       try{
-        const response = await axios.get(`http://localhost:3000/games/search?game=${searchInput}`)
+        const response = await axios.get(`http://localhost:5000/games/search?game=${searchInput}`)
         if(response.data !== ""){
           setSearchedGames(response.data)
         }else{

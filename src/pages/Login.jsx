@@ -35,7 +35,7 @@ const Login = () => {
 
   
   const handleGithubAuth = async () => {
-    axios.get('http://localhost:3000/users/auth/github') 
+    axios.get('http://localhost:5000/users/auth/github') 
       .then(response => {
         window.open(response.data.callback, "_top","resizable=no,menubar=no,titlebar=no,toolbar=no");
       })
@@ -52,7 +52,7 @@ const Login = () => {
     try{
       if(emailLogin){
         await axios.post(
-          "http://localhost:3000/users/login",
+          "http://localhost:5000/users/login",
           {
             email:email,
             password:password,
@@ -64,7 +64,7 @@ const Login = () => {
 
       }else{
         await axios.post(
-          "http://localhost:3000/users/login",
+          "http://localhost:5000/users/login",
           {
             username:username,
             password:password,

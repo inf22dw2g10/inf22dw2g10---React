@@ -36,7 +36,7 @@ const RegisterForm = () => {
     if(Object.keys(validationErrors).length === 0){
       try{
         const response = await axios.post(
-          "http://localhost:3000/users/register",
+          "http://localhost:5000/users/register",
           {
             username:username,
             password:password,

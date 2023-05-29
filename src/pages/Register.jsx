@@ -44,7 +44,7 @@ const Register = () => {
     const password = data.password
     try{
       await axios.post(
-        "http://localhost:3000/users/register",
+        "http://localhost:5000/users/register",
         {
           username:username,
           email:email,
