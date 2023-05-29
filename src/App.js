@@ -51,11 +51,13 @@ try{
 }
 */
 
-import Navbar from "./components/Navbar";
+import Layout from "./components/Layout";
 import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Store from "./pages/Store";
 import Login from "./pages/Login";
+import Game from "./pages/Game";
+import NotFound from "./pages/NotFound"
 import Register from "./pages/Register";
 import { AuthContextProvider } from "./providers/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -64,35 +66,40 @@ import CheckLogin from "./components/CheckLogin";
 function App() {
   const client = new QueryClient();
   return (
-
     <Router>
       <QueryClientProvider client={client}>
         <AuthContextProvider>
-            <Navbar/>
-            <Routes>
-              <Route path="/check-login" Component={CheckLogin} />
-              <Route exact path="/" Component={Store} />
-              <Route
-                path="/login"
-                element={
-                  <ProtectedRoute accessBy="non-authenticated">
-                    <Login />
-                  </ProtectedRoute>
-                }
-              ></Route>
-              <Route
-                path="/register"
-                element={
-                  <ProtectedRoute accessBy="non-authenticated">
-                    <Register />
-                  </ProtectedRoute>
-                }
-              ></Route>
-            </Routes>
+            <Layout>
+              <Routes>
+                <Route path="/game/:gameId" element={<Game/>}/>
+                <Route exact path="/" element={<Store/>} />
+                <Route path="/check-login"
+                  element={
+                    <ProtectedRoute accessBy="non-authenticated">
+                      <CheckLogin/>
+                    </ProtectedRoute>
+                  }
+                ></Route>
+                <Route path="/login"
+                  element={
+                    <ProtectedRoute accessBy="non-authenticated">
+                      <Login />
+                    </ProtectedRoute>
+                  }
+                ></Route>
+                <Route path="/register"
+                  element={
+                    <ProtectedRoute accessBy="non-authenticated">
+                      <Register />
+                    </ProtectedRoute>
+                  }
+                ></Route>
+                <Route path="*" element={<NotFound/>}/>
+              </Routes>
+            </Layout>
       </AuthContextProvider>
     </QueryClientProvider>
     </Router>
-
   );
 }
  

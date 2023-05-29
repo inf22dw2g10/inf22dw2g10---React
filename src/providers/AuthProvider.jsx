@@ -31,7 +31,6 @@ export const AuthContextProvider = ({ children }) => {
       setUser(null);
       navigate("/login");
     }
-    
   };
  
   return (

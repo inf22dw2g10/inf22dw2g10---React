@@ -1,0 +1,24 @@
+nav{
+    background-color: rgb(35,35,35);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 4rem;
+    padding:0 10%;
+    color:white;
+    font-weight: 600;
+    font-size: 1.2em;
+    margin:0;
+}
+
+nav a{
+    text-decoration: none;
+    color:white;
+}
+main{ 
+    flex-grow: 1;
+    background-color: rgb(40,40,40);
+    color:white;
+    display: flex;
+    flex-direction: column;
+}

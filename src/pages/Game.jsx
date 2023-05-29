@@ -16,7 +16,7 @@ const Game = () => {
     }
 
     if (isError) {
-        return <div>Error: {error.message}</div>;
+        return <div>Game Not Found</div>;
     }
 
     if (error) {
@@ -24,7 +24,9 @@ const Game = () => {
     }
 
     return (
-        <div>{JSON.stringify(game)}</div>
+        <>
+            <div>{JSON.stringify(game)}</div>
+        </>
     );
 }
 

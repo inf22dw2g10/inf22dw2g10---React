@@ -4,20 +4,17 @@ import AuthContext from "../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const CheckLogin = () => {
-  const { user, login } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!user){
-      if(Cookies.get("token") !== undefined){
-          login();
-      } else {
-          navigate("/");
-      }
-    }else{
-      navigate("/");
-    }    
-  }, [user,login, navigate]);
+    if(Cookies.get("token") !== undefined){
+        login();
+    } else {
+        navigate("/");
+    }
+  
+  }, [login, navigate]);
 };
 
 export default CheckLogin;
