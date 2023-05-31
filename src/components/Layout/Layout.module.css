@@ -1,0 +1,12 @@
+.mainContainer{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: url('../../images/form-background.jpg');
+}
+.mainLayout{
+    flex-grow: 1;
+    color:white;
+    display: flex;
+    flex-direction: column;
+}

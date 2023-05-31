@@ -1,6 +1,8 @@
 import axios from "axios";
+import Layout from '../components/Layout/Layout'
 import { useQuery } from 'react-query';
 import { useParams } from "react-router-dom";
+import styles from './styles/Game.module.css'
 
 const Game = () => {
     const { gameId } = useParams();
@@ -24,9 +26,11 @@ const Game = () => {
     }
 
     return (
-        <>
-            <div>{JSON.stringify(game)}</div>
-        </>
+        <Layout>
+            <div className={styles.gameContainer}>
+                {JSON.stringify(game)}
+            </div>
+        </Layout>
     );
 }
 

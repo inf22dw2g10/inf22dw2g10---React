@@ -1,0 +1,11 @@
+.searchUserInput{
+    width: 30%;
+    padding: 0.8rem 1rem; 
+    background-color: rgba(50,50,50,0.9);
+    outline: none;
+    border: 0;
+    color:white;
+}
+.searchUserInput:focus{
+    background-color: rgba(30,30,30);
+}

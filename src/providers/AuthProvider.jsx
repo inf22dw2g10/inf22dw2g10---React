@@ -19,7 +19,6 @@ export const AuthContextProvider = ({ children }) => {
   const login = async () => {
     setUser(jwtDecode(Cookies.get("token")))
     navigate("/");
-
   };
  
   const logout = async () => {

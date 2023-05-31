@@ -1,0 +1,117 @@
+.navLayout{
+    display: flex;
+    height: 4rem;
+    min-height: 4rem;
+    color:white;
+    font-weight: 600;   
+    font-size: 1.2em;
+    margin:0.25rem 0;
+}
+.navLayout a,.navMobile a{
+    text-decoration: none;
+    color:white;
+}
+.middleNav{
+    position: relative;
+    margin: 0 4rem;
+    padding: 0 4rem;
+    height: 100%;
+    width: 70%;
+    background-color: rgb(35,35,35);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.middleNav::before{
+    content: "";
+    position: absolute;
+    top: -100%;
+    right:100%;
+    width: 0;
+    height: 0;
+    border-left: 1rem solid transparent;
+    border-top: 4rem solid transparent;
+    border-bottom: 4rem solid rgb(35,35,35);
+}
+.middleNav::after{
+    content: "";
+    position: absolute;
+    top: 0%;
+    left:100%;
+    width: 0;
+    height: 0;
+    border-right: 1rem solid transparent;
+    border-bottom: 4rem solid transparent;
+    border-top: 4rem solid rgb(35,35,35);
+}
+
+.userNav{
+    font-size: 1rem;
+    position: relative;
+    margin: 0 4rem;
+    padding: 0 4rem;
+    height: 100%;
+    width: 20%;
+    background-color: rgb(35,35,35);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.userNav::before{
+    content: "";
+    position: absolute;
+    top: -100%;
+    right:100%;
+    width: 0;
+    height: 0;
+    border-left: 1rem solid transparent;
+    border-top: 4rem solid transparent;
+    border-bottom: 4rem solid rgb(35,35,35);
+}
+.userNav::after{
+    content: "";
+    position: absolute;
+    top: 0%;
+    left:100%;
+    width: 0;
+    height: 0;
+    border-right: 1rem solid transparent;
+    border-bottom: 4rem solid transparent;
+    border-top: 4rem solid rgb(35,35,35);
+}
+.userNav > span {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.navMobile{
+    display: none;
+    background-color: rgb(35,35,35);
+    height: 4rem;
+    min-height: 4rem;
+    color:white;
+    font-weight: 600;   
+    font-size: 1.2em;
+    padding: 0 4rem;
+    background-color: rgb(35,35,35);
+    justify-content: space-between;
+    align-items: center;
+}
+.mobileUserNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1160px) {
+    .navLayout{
+        display: none;
+    }
+    .navMobile{
+        display: flex;
+    }
+}

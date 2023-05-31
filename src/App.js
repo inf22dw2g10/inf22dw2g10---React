@@ -39,7 +39,7 @@ export default App;
 /*
 try{
   const response = await axios.post(
-    "http://localhost:3000/users/login",
+    "http://localhost:5000/users/login",
     {
       userid:userId,
       password:password
@@ -50,8 +50,6 @@ try{
   
 }
 */
-
-import Layout from "./components/Layout";
 import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Store from "./pages/Store";
@@ -62,6 +60,7 @@ import Register from "./pages/Register";
 import { AuthContextProvider } from "./providers/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
 import CheckLogin from "./components/CheckLogin";
+
  
 function App() {
   const client = new QueryClient();
@@ -69,10 +68,9 @@ function App() {
     <Router>
       <QueryClientProvider client={client}>
         <AuthContextProvider>
-            <Layout>
               <Routes>
-                <Route path="/game/:gameId" element={<Game/>}/>
                 <Route exact path="/" element={<Store/>} />
+                <Route path="/game/:gameId" element={<Game/>}/>
                 <Route path="/check-login"
                   element={
                     <ProtectedRoute accessBy="non-authenticated">
@@ -96,7 +94,6 @@ function App() {
                 ></Route>
                 <Route path="*" element={<NotFound/>}/>
               </Routes>
-            </Layout>
       </AuthContextProvider>
     </QueryClientProvider>
     </Router>

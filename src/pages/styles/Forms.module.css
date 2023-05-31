@@ -1,30 +1,29 @@
-.form-wrapper{
+.formWrapper{
     flex-grow: 1;
     flex-direction: column;
     margin: 0;
-    background: url('../../images/form-background.jpg');
     width: 100%;
     display:flex;
     justify-content: center;
     align-items: center;
 }
-.form-wrapper form{
+.formWrapper form{
     padding: 1.5rem 0;
     width:35%;
     background-color: rgba(255,255,255,0.6);
     text-align: center;
 }
-.form-wrapper form h1,.form-wrapper form h2,.form-wrapper form h4{
+.formWrapper form h1,.formWrapper form h2,.formWapper form h4{
     color:rgb(30,30,30);
     margin: 1.5rem 0;
 }
-.form-wrapper form h1{
+.formWapper form h1{
     margin-top:0;
 }
-.form-wrapper form p{
+.formWrapper form p{
     position: relative;
 }
-.form-wrapper form input{
+.formWrapper form input{
     width: 45%;
     margin: 0.5rem 0;
     padding: 0.8rem 1rem; 
@@ -33,26 +32,26 @@
     border: 0;
     color:white;
 }
-.form-wrapper form input:focus{
+.formWrapper form input:focus{
     background-color: rgba(30,30,30);
 }
-.form-wrapper form input[type="submit"]{
+.formWrapper form input[type="submit"]{
     cursor:pointer;
 }
 
-.form-error-message{
+.formErrorMessage{
     color:rgb(165, 30, 30);
 }
-.form-success-message{
+.formSuccessMessage{
     color:rgb(30, 165, 30)
 }
-.oauth-image{
+.oauthImage{
     margin: 0.5rem 0;
 }
-.is-email{
+.isEmail{
     display: none;
 }
-.is-email-img{
+.isEmailImg{
     cursor: pointer;
     transition: 1s transform ease;
     top:22.5%;
@@ -60,7 +59,7 @@
     position: absolute;
     color:white;
 }
-.is-email:checked + label .is-email-img{
+.isEmail:checked + label .isEmailImg{
     transform: rotate(360deg);
 }
 
@@ -72,13 +71,13 @@
 /* Media Queries */
 
 @media only screen and (max-width: 1366px) {
-    .form-wrapper form input{
+    .formWrapper form input{
         width:60%;
     }
 }
 
 @media only screen and (max-width: 1280px) {
-    .form-wrapper form{
+    .formWrapper form{
         width:60%;
     }
     .form-wrapper form input{
@@ -86,22 +85,22 @@
     }
 }
 @media only screen and (max-width: 1024px) {
-    .form-wrapper form{
+    .formWrapper form{
         width:75%;
     }
 }
 @media only screen and (max-width: 768px) {
-    .form-wrapper form input{
+    .formWrapper form input{
         width:50%;
     }
 }
 
 @media only screen and (max-width: 600px) {
 
-    .form-wrapper form{
+    .formWrapper form{
         width:75%;
     }
-    .form-wrapper form input{
+    .formWrapper form input{
         width:70%;
     }
 }
