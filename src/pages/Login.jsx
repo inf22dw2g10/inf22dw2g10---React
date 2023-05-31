@@ -107,7 +107,9 @@ const Login = () => {
           <p className={styles.formErrorMessage}>{errors.password?.message}</p>
           <p className={styles.formErrorMessage} >{axiosError && axiosError}</p>
           <p><input type="submit" value="Login"/></p>
+          <br/>
           <h4>Don't have an account? <Link to="/register">Register here</Link></h4>
+          <br/>
           <h4>or</h4>
           <h2>Sign In/Up with</h2>
           <p className={styles.formErrorMessage}>{oauthError && oauthError}</p>

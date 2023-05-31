@@ -33,7 +33,7 @@ const Navbar = () => {
             </div>
             {user &&
                 <div className={styles.userNav}>
-                    <Link to={`/profile/${user?.id}`}>{user && <UserAvatar/>}</Link>&nbsp;<span><Link to={`/profile/${user?.id}`}>{user?.username}</Link><Link to={`/profile/${user?.id}`}><Balance/></Link></span>
+                    <Link to={`/profile/${user?.id}`}></Link>&nbsp;<span><Link to={`/profile/${user?.id}`}>{user?.username}</Link><Link to={`/profile/${user?.id}`}><Balance/></Link></span>
                 </div>
             }
         </nav>
@@ -43,7 +43,7 @@ const Navbar = () => {
             </div>
             {user &&
                 <div className={styles.mobileUserNav}>
-                    <Link to={`/profile/${user?.id}`}>{user && <UserAvatar/>}</Link>&nbsp;<Link to={`/profile/${user?.id}`}><span>{user?.username}</span></Link>
+                    <Link to={`/profile/${user?.id}`}></Link>&nbsp;<Link to={`/profile/${user?.id}`}><span>{user?.username}</span></Link>
                 </div>
             }
         </nav>

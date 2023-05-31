@@ -6,6 +6,10 @@
 .storeItems{
     margin: 0;
 }
+.storeItems a{
+    text-decoration: none;
+    color:rgb(60, 163, 0, 0.5);
+}
 .gameCard{
     position: relative;
     margin: 1rem 2%;
@@ -16,9 +20,10 @@
     min-height: 15rem;
     box-shadow: 0px 0px;
     border-radius: 5px;
+    border:2px solid rgb(47, 43, 43);
 }
 .gameCard:hover{
-    box-shadow: rgba(60, 163, 0, 0.5) -6px 6px 1px,rgb(60, 163, 0, 0.5) -5px 5px 1px,rgb(60, 163, 0, 0.5) -4px 4px 1px,rgb(60, 163, 0, 0.5) -3px 3px 1px,rgb(60, 163, 0, 0.5) -2px 2px 1px,rgb(60, 163, 0, 0.5) -1px 1px 1px;
+    box-shadow: rgb(60, 163, 0, 0.5) -6px 6px 0px,rgb(60, 163, 0, 0.5) -5px 5px 0px,rgb(60, 163, 0, 0.5) -4px 4px 1px,rgb(60, 163, 0, 0.5) -3px 3px 1px,rgb(60, 163, 0, 0.5) -2px 2px 1px,rgb(60, 163, 0, 0.5) -1px 1px 1px;
     transform: translateX(5px) translateY(-5px);
 }
 
@@ -29,8 +34,6 @@
     bottom: 0;
     width: 100%;
     display: flex;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius:5px ;
     padding: 0.5rem 1rem;
     justify-content: space-between;
 }
@@ -39,10 +42,6 @@
     background-color: rgba(47,43,43);
     border-radius: 3px;
     color: white;
-}
-a{
-    text-decoration: none;
-    color:rgb(60, 163, 0, 0.5);
 }
 
 .outerSearchbar{
@@ -76,6 +75,7 @@ a{
 
 }
 .innerSearchbar  > a{
+    text-decoration: none;
     transition: 0.5s all ease;
     cursor:pointer;
     display: flex;
@@ -88,6 +88,15 @@ a{
     color:white;
 }
 .innerSearchbar > a:last-of-type {
+    border-bottom: 1px solid rgba(255,255,255,0.8);
+}
+.innerSearchbar >  a:hover{
+    border: 1px solid rgb(210,210,210);
+    border-bottom: 0px;
+    background-color: rgb(210,210,210);
+    color:rgb(45,45,45);
+}
+.innerSearchbar > a:last-of-type:hover {
     border-bottom: 1px solid rgba(255,255,255,0.8);
 }
 .innerSearchbar >  a:hover{

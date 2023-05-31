@@ -78,7 +78,9 @@ const Register = () => {
           <p className={styles.formErrorMessage}>{errors.repeatPassword?.message}</p>
           <p className={styles.formErrorMessage} >{axiosError && axiosError}</p>
           <p><input type="submit" value="Register"/></p>
+          <br/>
           <h4>Already have an account? <Link to="/login">Login here</Link></h4>
+          <br/>
         </form>
       </div>
     </Layout>
