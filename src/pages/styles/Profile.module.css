@@ -1,0 +1,24 @@
+.profileContainer{
+    flex-grow: 1;
+    position: relative;
+    background-color: rgb(70,70,70,0.8);
+    margin: 0 2.5rem;
+    margin-bottom: 0.25rem;
+    display:flex;
+    overflow: hidden;
+}
+.profileComments{
+    display: flex;
+    flex-direction: column;
+    width:30%;
+    background-color: rgb(40,40,40);
+    color:white;
+}
+
+.profileMain{
+    width:70%;
+    background-color: rgb(150,150,150);
+}
+.profileAvatar{
+    height:5rem;
+}

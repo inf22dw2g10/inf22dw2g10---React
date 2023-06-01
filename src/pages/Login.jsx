@@ -1,5 +1,4 @@
 import axios from "axios";
-import Layout from '../components/Layout/Layout'
 import gitHublogo from '../images/github-logo.png';
 import isEmailImg from '../images/swap3.png';
 import { useState } from "react";
@@ -21,7 +20,7 @@ const Login = () => {
   const loginSchema = yup.object().shape({
     emailLogin: yup.boolean().required(),
     username: yup.lazy((value) =>
-      value ? yup.string().required('Username is required') : yup.string()
+      value ? yup.string().required('Username is required').max(15, 'Username can take up to 15 characters') : yup.string()
     ),
     email: yup.lazy((value) =>
       value ? yup.string().email().required('Email is required') : yup.string().email()
@@ -37,7 +36,7 @@ const Login = () => {
 
   
   const handleGithubAuth = async () => {
-    axios.get('http://localhost:5000/users/auth/github') 
+    axios.get(`http://${window.location.hostname}:5000/users/auth/github`) 
       .then(response => {
         window.open(response.data.callback, "_top","resizable=no,menubar=no,titlebar=no,toolbar=no");
       })
@@ -54,7 +53,7 @@ const Login = () => {
     try{
       if(emailLogin){
         await axios.post(
-          "http://localhost:5000/users/login",
+          `http://${window.location.hostname}:5000/users/login`,
           {
             email:email,
             password:password,
@@ -66,7 +65,7 @@ const Login = () => {
 
       }else{
         await axios.post(
-          "http://localhost:5000/users/login",
+          `http://${window.location.hostname}:5000/users/login`,
           {
             username:username,
             password:password,
@@ -94,12 +93,11 @@ const Login = () => {
   }
 
   return (
-    <Layout>
       <div className={styles.formWrapper}>
         <form action="" method="post" onSubmit={handleSubmit(loginSubmit)}>
           <h1>Login</h1>
-          <p>{emailLogin ? (<input type="text" name="email" placeholder="Email"  autoComplete="off" {...register("email")}/>) : (<input type="text" name="username" placeholder="Username"  autoComplete="off" {...register("username")}/>)}
-          <input type="checkbox" className={styles.isEmail} id="is-email" {...register("emailLogin")} checked={emailLogin} onChange={() => setEmailLogin(!emailLogin)} /><label htmlFor="is-email"><img src={isEmailImg} alt="Change" draggable="false" className={styles.isEmailImg}  /></label>
+          <p>{emailLogin ? (<input type="email" name="email" className={styles.inputLoginEmailUser} placeholder="Email"  autoComplete="off" {...register("email")}/>) : (<input type="text" className={styles.inputLoginEmailUser} name="username" placeholder="Username"  autoComplete="off" {...register("username")}/>)}
+          <input type="checkbox" className={styles.isEmail}  id="is-email" {...register("emailLogin")} checked={emailLogin} onChange={() => setEmailLogin(!emailLogin)} /><label htmlFor="is-email"><img src={isEmailImg} alt="Change" draggable="false" className={styles.isEmailImg}  /></label>
           </p> 
           <p className={styles.formErrorMessage}>{errors.username?.message}</p>
           <p className={styles.formErrorMessage}>{errors.email?.message}</p>
@@ -107,16 +105,13 @@ const Login = () => {
           <p className={styles.formErrorMessage}>{errors.password?.message}</p>
           <p className={styles.formErrorMessage} >{axiosError && axiosError}</p>
           <p><input type="submit" value="Login"/></p>
-          <br/>
           <h4>Don't have an account? <Link to="/register">Register here</Link></h4>
-          <br/>
           <h4>or</h4>
           <h2>Sign In/Up with</h2>
           <p className={styles.formErrorMessage}>{oauthError && oauthError}</p>
           <p className={styles.githubLink}><Link onClick={handleGithubAuth}><img src={gitHublogo} className={styles.oauthImage} alt="GitHub" height="50px"/></Link></p>
         </form>
       </div>
-    </Layout>
   );
 }
 

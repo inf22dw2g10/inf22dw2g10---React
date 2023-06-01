@@ -1,5 +1,4 @@
 import axios from "axios";
-import Layout from '../components/Layout/Layout'
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -19,16 +18,18 @@ const Register = () => {
   useEffect(() => {
     if (registrationSuccessful) {
 
+      setAxiosError(null)
+
       const timeout = setTimeout(() => {
         navigate("/login");
-      }, 3000);
+      }, 2000);
 
       return () => clearTimeout(timeout);
     }
   }, [navigate,registrationSuccessful]);
 
   const registerSchema = yup.object().shape({
-    username: yup.string().required("Username is required"),
+    username: yup.string().required("Username is required").max(15, 'Username can take up to 15 characters') ,
     email: yup.string().email().required("Email is required"),
     password: yup.string().min(4,"Password is must have, at least, 4 characters").required("Password is required"),
     repeatPassword: yup.string().oneOf([yup.ref("password"),null],"Password don't match"),
@@ -45,7 +46,7 @@ const Register = () => {
     const password = data.password
     try{
       await axios.post(
-        "http://localhost:5000/users/register",
+        `http://${window.location.hostname}:5000/users/register`,
         {
           username:username,
           email:email,
@@ -63,14 +64,13 @@ const Register = () => {
   }
 
   return (
-    <Layout>
       <div className={styles.formWrapper}>
         <form action="" method="post" onSubmit={handleSubmit(registerSubmit)}>
           <h1>Register</h1>
           <h3 className={styles.formSuccessMessage}>{registrationSuccessful &&  "Registration Successful, You will be redirect to login page"}</h3>
           <p><input type="text" name="username" placeholder="Username"  autoComplete="off" {...register("username")}/></p>
           <p className={styles.formErrorMessage}>{errors.username?.message}</p>
-          <p><input type="email" name="email" placeholder="Email"  autoComplete="off" {...register("email")}/></p>
+          <p><input type="email"  name="email" placeholder="Email"  autoComplete="off" {...register("email")}/></p>
           <p className={styles.formErrorMessage}>{errors.email?.message}</p>
           <p><input type="password" name="password" placeholder="Password"  autoComplete="off" {...register("password")}/></p>
           <p className={styles.formErrorMessage}>{errors.password?.message}</p>
@@ -78,12 +78,10 @@ const Register = () => {
           <p className={styles.formErrorMessage}>{errors.repeatPassword?.message}</p>
           <p className={styles.formErrorMessage} >{axiosError && axiosError}</p>
           <p><input type="submit" value="Register"/></p>
-          <br/>
           <h4>Already have an account? <Link to="/login">Login here</Link></h4>
-          <br/>
         </form>
       </div>
-    </Layout>
+
   );
 }
 

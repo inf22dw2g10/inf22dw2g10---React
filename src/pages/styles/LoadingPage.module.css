@@ -1,0 +1,28 @@
+.loadingPage {
+    background: url('../../images/background3.jpg');
+    color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+  
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #ccc;
+    border-top-color: #888;
+    border-radius: 50%;
+    animation: spinner-rotate 1s linear infinite;
+}
+  
+@keyframes spinner-rotate {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+  

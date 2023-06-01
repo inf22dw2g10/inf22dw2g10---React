@@ -23,7 +23,7 @@ export const AuthContextProvider = ({ children }) => {
  
   const logout = async () => {
     try{
-      await axios.get("http://localhost:5000/users/logout", { withCredentials: true });
+      await axios.get(`http://${window.location.hostname}:5000/users/logout`, { withCredentials: true });
       setUser(null);
       navigate("/login");
     }catch(err){
