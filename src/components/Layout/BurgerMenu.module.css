@@ -1,0 +1,59 @@
+.burgerMenu {
+  position: relative;
+  z-index: 999;
+}
+
+.burgerIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.bar {
+  width: 100%;
+  height: 0.25rem;
+  background-color: white;
+}
+
+.menuItems {
+  list-style: none;
+  position: fixed;
+  top: 0;
+  left:0;
+  height: 100vh;
+  width: 50%;
+  background-color: rgb(35,35,35);
+  color:white;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  
+}
+.menuItems a{
+  text-decoration: none;
+  color:white;
+}
+.open {
+  transform: translateX(0);
+}
+
+.closeButton {
+  font-size: 2rem;
+  top: 1.5rem;
+  right: 3rem;
+  position: absolute;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1000px) {
+  .menuItems {
+    width:100%;
+  }
+}

@@ -1,0 +1,15 @@
+.mainContainer{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: url('../../images/background1.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+.mainLayout{
+    flex-grow: 1;
+    color:white;
+    display: flex;
+    flex-direction: column;
+}

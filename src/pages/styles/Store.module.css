@@ -1,0 +1,170 @@
+.storeContainer{
+    height: 100%;
+    position: relative;
+    background-color: rgb(70,70,70,0.8);
+    margin: 0 2.5rem;
+    margin-bottom: 0.25rem;
+    overflow: hidden;
+}
+.storeItems{
+    margin: 0;
+}
+.storeItems a{
+    text-decoration: none;
+    color:rgb(60, 163, 0, 0.5);
+}
+.gameCard{
+    position: relative;
+    margin: 1rem 2%;
+    cursor: pointer;
+    transition: 0.25s all ease;
+    display:inline-block;
+    width: 21%;
+    min-height: 15rem;
+    box-shadow: 0px 0px;
+    border-radius: 5px;
+    border:2px solid rgb(45, 45, 45);
+}
+.gameCard:hover{
+    box-shadow: rgb(60, 163, 0, 0.5) -6px 6px 0px,rgb(60, 163, 0, 0.5) -5px 5px 0px,rgb(60, 163, 0, 0.5) -4px 4px 1px,rgb(60, 163, 0, 0.5) -3px 3px 1px,rgb(60, 163, 0, 0.5) -2px 2px 1px,rgb(60, 163, 0, 0.5) -1px 1px 1px;
+    transform: translateX(5px) translateY(-5px);
+}
+
+.gameCardInfo {
+    background-color: rgb(45, 45, 45);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    border-bottom-left-radius: 0.5px;
+    border-bottom-right-radius:0.5px ;
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+}
+.gameCardInfo span{
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    color: white;
+}
+
+.outerSearchbar{
+    position: relative;
+    min-height: 4rem;
+    text-align: right;
+    padding: 1rem 0;
+    margin: 0 2.5rem;
+}
+
+.inputSearchGames{
+    width: 21.6%;
+    padding: 0.8rem 1rem; 
+    background-color: rgba(50,50,50,0.9);
+    outline: none;
+    border: 0;
+    color:white;
+}
+
+.inputSearchGames:focus{
+    background-color: rgba(30,30,30);
+}
+
+.innerSearchbar{
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 21.6%;
+    right:0%;
+
+}
+.innerSearchbar  > a{
+    text-decoration: none;
+    transition: 0.5s all ease;
+    cursor:pointer;
+    display: flex;
+    padding: 0 1rem;
+    height: 5rem;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-bottom: 0px;
+    background-color: rgb(45,45,45);
+    color:white;
+}
+.innerSearchbar > a:last-of-type {
+    border-bottom: 1px solid rgba(255,255,255,0.8);
+}
+.innerSearchbar >  a:hover{
+    border: 1px solid rgb(210,210,210);
+    border-bottom: 0px;
+    background-color: rgb(210,210,210);
+    color:rgb(45,45,45);
+}
+.innerSearchbar > a:last-of-type:hover {
+    border-bottom: 1px solid rgba(255,255,255,0.8);
+}
+.innerSearchbar > a > div{
+    display: flex;
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.imgSearchBar{
+    height: 90%;
+    width: 100%;
+    object-fit:cover;
+}
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 1366px) {
+    .gameCard{
+        width: 30%;
+        margin: 1rem 1.666%;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .inputSearchGames{
+        width: 30%;
+    }
+    .innerSearchbar{
+        width: 30%;
+    }
+
+}
+
+@media only screen and (max-width: 1160px) {
+    .storeContainer{
+        margin: 0;
+    }
+
+}
+@media only screen and (max-width: 1024px) {
+    .inputSearchGames{
+        width: 40%;
+    }
+    .innerSearchbar{
+        width: 40%;
+    }
+    .gameCard{
+        width: 48%;
+        margin: 1rem 1%;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+    .inputSearchGames{
+        width: 100%;
+    }
+    .innerSearchbar{
+        width: 100%;
+    }
+    .gameCard{
+        width: 90%;
+        margin: 1rem 5%;
+    }
+}
