@@ -15,6 +15,10 @@ const ProtectedRoute = ({ children, accessBy }) => {
       if (!user) {
         navigate("/");
       }
+    }else if (accessBy === "admin"){
+      if(!user.admin){
+        navigate("/");
+      }
     } else {
       navigate("/");
     }

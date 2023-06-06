@@ -1,20 +1,32 @@
-import { useQuery } from "react-query";
 import axios from "axios";
+import { useQuery } from "react-query";
 import LoadingSpinner from "./LoadingSpinner";
 
+
+
+
+
 const Balance = () => {
-    const { data: balance, isLoading } = useQuery("balance", () => {
+
+    
+    // Get balance
+    const { data: balance, isLoading, error } = useQuery("balance", () => {
         return axios.get(`http://${window.location.hostname}:5000/users/balance`, {withCredentials: true}).then((res) => res.data);
     },{ 
         retry: false,
     });
 
-    if (isLoading) {
+    let newBalance = balance?.balance.toFixed(2);
+
+
+    // Check Balance display
+
+    if (isLoading || error) {
         return <LoadingSpinner/>;
     }
-    let newBalance = balance.balance.toFixed(2);
+
   return (
-    <>{newBalance}€</>
+    <>{newBalance}</>
   )
 }
 

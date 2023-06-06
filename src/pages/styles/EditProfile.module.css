@@ -1,0 +1,91 @@
+.editProfileContainer{
+    flex-grow: 1;
+    margin: 0 2.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.formsWrapper{
+    width: 55%;
+    background-color: rgb(70,70,70,0.8);
+    padding: 1.5rem 2.5rem;
+}
+.formsWrapper a{
+    transition: all 0.25s ease;
+    padding: 0.5rem 0.75rem;
+    background-color: white;
+    text-decoration: none;
+    color:rgb(0, 138, 100);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.formsWrapper a:hover{
+    background-color: rgb(70,70,70);
+    color:rgb(0, 138, 100);
+}
+.formsWrapper a:active{
+    background-color: rgb(50,50,50);
+    color:rgb(0, 138, 100);
+}
+.formsWrapper h2{
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
+
+}
+.editWrapper{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+}
+.editWrapper > *{
+    width: 50%;
+    margin: 0.25rem 0;
+    margin-right:0.5rem;
+}
+
+.editWrapper h2{
+    width: 100%;
+    text-align: center;
+}
+.editWrapper input, .editWrapper textarea{
+    width: 100%;
+    padding: 0.8rem 1rem; 
+    background-color: rgb(50,50,50);
+    outline: none;
+    border: 0;
+    color:white;
+    
+    
+}
+
+.editWrapper textarea{
+    resize: none;
+    height: 5rem;
+}
+
+.editWrapper input[type="text"]:focus,.editWrapper input[type="email"]:focus,.editWrapper input[type="password"]:focus,.editWrapper textarea:focus{
+    background-color: rgb(30,30,30);
+}
+
+.editWrapper  input[type="submit"]{
+    cursor:pointer;
+}
+
+.editWrapper  input[type="submit"]:active{
+    background-color: rgba(30,30,30);
+}
+
+
+@media only screen and (max-width: 1160px) {
+    .editWrapper p{
+        width: 100%;
+    }
+    .editProfileContainer{
+        margin:0;
+    }
+    .formsWrapper{
+        width: 100%;
+    }
+
+}

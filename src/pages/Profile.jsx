@@ -1,50 +1,114 @@
 import axios from "axios";
+
 import { useQuery } from 'react-query';
 import { useParams } from "react-router-dom";
-/*import Cookies from 'js-cookie';
-import jwtDecode from "jwt-decode";*/
 import styles from './styles/Profile.module.css'
 import NotFoundPage from "./NotFoundPage";
-import ProfileComment from "../components/ProfileComment";
+import ProfileGames from "../components/ProfileGames";
+import ProfileComments from "../components/ProfileComments";
 import ProfileInfo from "../components/ProfileInfo";
+import { useEffect,useContext } from "react";
+import AuthContext from '../providers/AuthProvider'
+import LoadingPage from './LoadingPage'
+import leftArrow  from '../images/left-arrow.png'
+import  rightArrow  from '../images/right-arrow.png'
 
 const Profile = () => {
-    /*
-    if(Cookies.get("token")){
-        const loggedUserId = jwtDecode(Cookies.get("token")).id
-    }
-*/
+    const { user } = useContext(AuthContext);
     const { userId } = useParams();
 
-    const { data: user, isLoading,isError, error } = useQuery("user", async() => {
-        return axios.get(`http://${window.location.hostname}:5000/users/profile/${userId}`, {withCredentials:true}).then((res) => res.data);
-    },{ 
+    const { data: userProfile, isLoading, isError, error, refetch } = useQuery("user", () => {
+        return axios.get(`http://${window.location.hostname}:5000/users/profile/${userId}`, {withCredentials: true}).then((res) => res.data);
+    }, { 
         retry: false
     });
 
-    if (isLoading) {
-        return <div>Loading...</div>;
+    useEffect(() => {
+        refetch()
+    }, [userId, refetch]);
+
+    if (isLoading ) {
+        return <LoadingPage/>
     }
 
-    if (isError) {
+    if ( error || isError ) {
         return <NotFoundPage/>
     }
 
-    if (error) {
-        return <div>Error: {error.message}</div>;
+    const scrollGameLeft = () => {
+        const container = document.getElementById("userGamesList");
+        if (container) {
+          container.scrollLeft -= container.offsetWidth ;
+        }
+    };
+    
+    const scrollGameRight = () => {
+    const container = document.getElementById("userGamesList");
+    if (container) {
+        container.scrollLeft += container.offsetWidth ;
     }
-    console.log(user)
-  return (
-        <div className={styles.profileContainer}>
-            <aside className={styles.profileComments}>
-                {user.comments.map(comment => (
-                    <ProfileComment comment={comment}/>
-                ))
-                }
-            </aside>
-            <ProfileInfo user={{ ...user, comments: undefined }}/>
-        </div>
-  )
-}
+    };
+    const scrollCommentsLeft = () => {
+        const container = document.getElementById("userCommentsList");
+        if (container) {
+          container.scrollLeft -= container.offsetWidth ;
+        }
+    };
+    
+    const scrollCommentsRight = () => {
+    const container = document.getElementById("userCommentsList");
+    if (container) {
+        container.scrollLeft += container.offsetWidth ;
+    }
+    };
 
-export default Profile
+    return (
+        <div className={styles.profileContainerWrapper}>
+            <div className={styles.profileContainer}>
+                <ProfileInfo userProfile={userProfile}/>
+
+                <div className={styles.userGamesListContainer} >
+                    <h3>{user.id !== userProfile.id ? `${userProfile.username}'s` : 'Your'} Games</h3>
+                    <div className={styles.userGamesList} id="userGamesList" >
+                        
+                        {userProfile && userProfile.games && userProfile.games.map(game => (
+                                <ProfileGames game={game} key={game.id} />
+                        ))}
+                        {userProfile.games.length === 0 && "No Games to display"}
+                    </div>
+
+                    {userProfile.games.length > 2 &&
+                        <>
+                            <button className={styles.gamesLeftArrow} onClick={scrollGameLeft}><img src={leftArrow} alt="<"/></button>
+                            <button className={styles.gamesRightArrow}  onClick={scrollGameRight}><img src={rightArrow} alt=">"/></button>
+                        </>
+                    }
+                </div>
+                <div className={styles.userCommentsListContainer} >
+                    <h3>{user.id !== userProfile.id ? `${userProfile.username}'s` : 'Your'} Comments</h3>
+                    <div className={styles.userCommentsList} id="userCommentsList" >
+                            
+                            {userProfile && userProfile.comments && userProfile.comments.map(comment => (
+                                    <ProfileComments comment={comment} key={comment.id} />
+                            ))}
+                            {userProfile.comments.length === 0 && "No Comments to display"}
+                    </div>
+                    {userProfile.comments.length > 1 &&
+                    <>
+                        <button className={styles.commentsLeftArrow} onClick={scrollCommentsLeft}><img src={leftArrow} alt="<"/></button>
+                        <button className={styles.commentsRightArrow}  onClick={scrollCommentsRight}><img src={rightArrow} alt=">"/></button>
+                    </>
+                    }
+    
+                </div>
+            </div>
+        </div>
+    );
+}
+/*
+
+
+
+                    */
+
+export default Profile;

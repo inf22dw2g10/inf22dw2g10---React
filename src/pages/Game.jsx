@@ -13,16 +13,12 @@ const Game = () => {
         retry: false
     });
 
-    if (isLoading) {
+    if (isLoading || error) {
         return <div>Loading...</div>;
     }
 
     if (isError) {
         return <NotFoundPage/>
-    }
-
-    if (error) {
-        return <div>Error: {error.message}</div>;
     }
 
     return (

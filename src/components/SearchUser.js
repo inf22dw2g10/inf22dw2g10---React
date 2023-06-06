@@ -34,13 +34,14 @@ const SearchUser = () => {
       }
   }
 
+
   return (
-    <div className={styles.outerSearchbar}  onBlur={hideSearchBar} >
+    <div className={styles.outerSearchbar}  onBlur={hideSearchBar}>
       <input type="text" name="" id="searchGamesBar" className={styles.inputSearchUsers} onChange={searchUsers} onFocus={searchUsers}  placeholder="Search User..."/>
-      <div className={styles.innerSearchbarUsers}  >
+      <div className={styles.innerSearchbarUsers} onClick={hideSearchBar} >
         {searchedUsers !== null && 
           searchedUsers.map(user => (
-              <Link to={`/profile/${user.id}`} key={user.id}><div>{user.username}</div></Link>
+            <Link to={`/profile/${user.id}`} key={user.id}><div>{user.username}</div></Link>
           ))
         }
       </div>

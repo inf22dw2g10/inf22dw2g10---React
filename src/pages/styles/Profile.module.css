@@ -1,24 +1,246 @@
-.profileContainer{
+.profileContainerWrapper{
     flex-grow: 1;
-    position: relative;
-    background-color: rgb(70,70,70,0.8);
     margin: 0 2.5rem;
-    margin-bottom: 0.25rem;
-    display:flex;
-    overflow: hidden;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
 }
-.profileComments{
+.profileContainer{
+    width: 55%;
+    background-color: rgb(70,70,70,0.8);
+    padding: 1rem 2.5rem;
+}
+.profileMain{
     display: flex;
     flex-direction: column;
-    width:30%;
-    background-color: rgb(40,40,40);
-    color:white;
 }
-
-.profileMain{
-    width:70%;
-    background-color: rgb(150,150,150);
+.profileAvatarContainer{
+    display: grid;
+    grid-template-columns: 7.5rem auto 10rem;
+    column-gap: 2rem;
+    align-items:start;
 }
 .profileAvatar{
-    height:5rem;
+    border: 2px solid black;
+    width: 100%;
+}
+.userDescription{
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    word-break:break-all;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 4.5rem;
+    overflow: hidden;
+}
+.editProfileButton{
+    margin-top: 5.5rem;
+}
+.editProfileButton a{
+    transition: all 0.25s ease;
+    padding: 0.5rem 0.75rem;
+    background-color: white;
+    text-decoration: none;
+    color:rgb(0, 138, 100);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.editProfileButton a:hover{
+    background-color: rgb(70,70,70);
+    color:rgb(0, 138, 100);
+}
+.editProfileButton a:active{
+    background-color: rgb(50,50,50);
+    color:rgb(0, 138, 100);
+}
+.userGamesListContainer, .userCommentsListContainer{
+    margin: 2rem 0;
+    position: relative;
+}
+.userGamesListContainer h3, .userCommentsListContainer h3{
+    margin: 1rem 0;
+}
+.userGamesList, .userCommentsList{
+    scroll-behavior: smooth;
+    scroll-snap-stop: always;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    scrollbar-width: none;
+    display: flex;
+    height: 13.5rem;
+    padding-bottom: 0.5rem;
+}
+.userGamesList::-webkit-scrollbar, .userCommentsList::-webkit-scrollbar {
+    width: 0px;
+}
+
+.userGamesList a {
+    text-decoration: none;
+    color:white;
+    transition: 0.75s all ease;
+    width: 100%;
+    height: 1.5rem;
+    text-indent: 0.5rem;
+    background-color: rgb(30,30,30);
+    position:absolute;
+    z-index: 2;
+    bottom:0;
+}
+
+.userGame{
+    transition: 0.5s all ease;
+    position: relative;
+    scroll-snap-align: start;
+    flex: 0 0 48%;
+    margin:0 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+.userComment{
+    width: 100%;
+    transition: 0.5s all ease;
+    display: flex;
+    position: relative;
+    scroll-snap-align: start;
+    flex: 0 0 100%;
+    border: 2px solid rgb(30,30,30);
+    margin:0 1%;
+}
+.userCommentInner{
+    width: 100%;
+    text-decoration: none;
+    color:white;
+    display: flex;
+}
+.commmentGameCover{
+    transition: 0.5s all ease;
+    position: relative;
+    width: 40%;
+}
+.commmentContentContainer{
+    transition: 0.5s all ease;
+    width: 60%;
+    background-color: rgb(30,30,30);
+    padding-top: 1.5rem;
+    border-left: 2px solid white;
+}
+
+.commmentContent{
+    height: 100%;
+    background-color: rgb(30,30,30);
+    padding: 0 1.5rem;
+    overflow: auto;
+
+}
+
+.commmentGameCover span{
+    transition: 0.5s all ease;
+    width: 100%;
+    text-align: center;
+    left:0;
+    top:0;
+    position: absolute;
+    color: white;
+    height: 1.5rem;
+    font-size: 1rem;
+    background-color: rgb(30,30,30);
+    color:white;
+}
+.commmentContent p{
+    word-break: break-all;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+}
+.commmentContent a{
+    text-decoration: none;
+    color:rgb(0, 138, 100);
+}
+.commmentContent a:hover{
+    text-decoration: underline;
+}
+.commentsRating{
+    transform:rotateY(180deg);
+    height: 2.5rem;
+    width: 2.5rem;
+}
+.commmentContentGameName{
+    font-size: large;
+    display: none;
+    font-weight: bold;
+}
+.userComment{
+    border: 2px solid white;
+}
+.userGame:hover, .userComment:hover, .userComment:hover .commmentContentContainer {
+    border-color: rgb(0, 138, 100) ;
+}
+.gamesLeftArrow, .commentsLeftArrow{
+    height: 0.5rem;
+    position: absolute;
+    border:0;
+    background-color: transparent;
+    top: 50%;
+    transform: translateY(-50%);
+    left:-2.5rem;
+    cursor: pointer;
+}
+.gamesRightArrow, .commentsRightArrow{
+    height: 0.5rem;
+    position: absolute;
+    border:0;
+    background-color: transparent;
+    top: 50%;
+    transform: translateY(-50%);
+    right:-2.5rem;
+    cursor: pointer;
+}
+
+
+.gamesRightArrow img, .gamesLeftArrow img, .commentsRightArrow img, .commentsLeftArrow img{
+    height: 2.5rem;
+}
+
+@media only screen and (max-width: 1160px) {
+    .editProfileButton{
+        display: none;
+    }
+    .profileAvatarContainer{
+        grid-template-columns: 5rem auto 8rem;
+    }
+    .profileContainer{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .profileContainerWrapper{
+        margin:0;
+    }
+    .userGame{
+        flex: 0 0 100%;
+
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .commmentContentGameName{
+        display: block;
+    }
+
+    .commmentGameCover{
+        display: none;
+    }
+
+    .commmentContent{
+        width: 100%;
+    }
+
 }

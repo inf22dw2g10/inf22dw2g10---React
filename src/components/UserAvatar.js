@@ -4,13 +4,13 @@ import LoadingSpinner from "./LoadingSpinner";
 
 const UserAvatar = () => {
 
-    const { data: avatar, isLoading} = useQuery("avatar", async () => {
+    const { data: avatar, isLoading, error} = useQuery("avatar", async () => {
         return axios.get(`http://${window.location.hostname}:5000/users/myavatar`, {withCredentials: true}).then((res) => res.data);
     },{ 
         retry: false,
     });
 
-    if (isLoading) {
+    if (isLoading || error) {
         return <LoadingSpinner/>;
     }
     return (

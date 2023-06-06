@@ -10,7 +10,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import CheckLogin from "./components/CheckLogin";
 import Profile from "./pages/Profile";
 import Layout from "./components/Layout/Layout";
-
+import AdminDashBoard from './pages/AdminDashboard'
+import EditProfile from "./pages/EditProfile";
 
  
 function App() {
@@ -48,6 +49,20 @@ function App() {
                     element={
                       <ProtectedRoute accessBy="authenticated">
                         <Profile/>
+                      </ProtectedRoute>
+                    }
+                  ></Route>
+                  <Route path="/editProfile"
+                    element={
+                      <ProtectedRoute accessBy="authenticated">
+                        <EditProfile/>
+                      </ProtectedRoute>
+                    }
+                  ></Route>
+                  <Route path="/admin"
+                    element={
+                      <ProtectedRoute accessBy="admin">
+                        <AdminDashBoard/>
                       </ProtectedRoute>
                     }
                   ></Route>
