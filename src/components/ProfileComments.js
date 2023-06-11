@@ -37,7 +37,6 @@ const ProfileComment = ({comment}) => {
               <div className={styles.commmentContent}>
                   <p>{comment.rating ? <img src={thumbsUp} alt='Thumbs Up' className={styles.commentsRating}/>: <img src={thumbsDown} alt='Thumbs down' className={styles.commentsRating}/>}<span style={comment.rating ? {color:'rgb(0, 138, 100) '} : {color:'rgb(138, 40, 40)'}} className={styles.commmentContentGameName}>{game.title}</span></p><br/>
                   <p>{comment.text}</p>
-                  <Link to={`/comment/${comment.id}`} >Ver Comentário</Link>
               </div>
             </div>
           </div>

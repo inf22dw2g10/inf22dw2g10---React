@@ -3,6 +3,9 @@ import { useQuery } from 'react-query';
 import { useParams } from "react-router-dom";
 import styles from './styles/Game.module.css'
 import NotFoundPage from "./NotFoundPage";
+import GameInfo from "../components/GameInfo";
+import CommentsInfo from "../components/CommentsInfo";
+import CommentMakeInfo from "../components/CommentMakeInfo";
 
 const Game = () => {
     const { gameId } = useParams();
@@ -22,9 +25,14 @@ const Game = () => {
     }
 
     return (
-        <div className={styles.gameContainer}>
-            {JSON.stringify(game)}
+        <div className={styles.gameContainerWrapper}>
+            <div className={styles.gameContainer}>
+                <GameInfo gameinfo={game}/>
+                <CommentsInfo game={game} gameId={game.id}/>
+                <CommentMakeInfo game={game} gameId={game.id}/>
+            </div>
         </div>
+        
     );
 }
 

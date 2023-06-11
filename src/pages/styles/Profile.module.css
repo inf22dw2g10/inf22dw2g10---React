@@ -20,8 +20,8 @@
     column-gap: 2rem;
     align-items:start;
 }
+
 .profileAvatar{
-    border: 2px solid black;
     width: 100%;
 }
 .userDescription{
