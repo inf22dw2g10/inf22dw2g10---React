@@ -1,7 +1,7 @@
-import styles from '../pages/styles/Profile.module.css'
+import styles from '../../pages/styles/Profile.module.css'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
-import AuthContext from '../providers/AuthProvider'
+import AuthContext from '../../providers/AuthProvider'
 
 
 const ProfileInfo = ({userProfile}) => {
@@ -18,7 +18,6 @@ const ProfileInfo = ({userProfile}) => {
         </p>
       </div>
       <div className={styles.userDescription}>
-        <h2>Description:</h2>
         <p>{userProfile.description ? userProfile.description : "No description"} </p>
       </div>
     </div>

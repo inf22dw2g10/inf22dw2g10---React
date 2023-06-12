@@ -1,9 +1,9 @@
-import styles from '../pages/styles/Profile.module.css'
+import styles from '../../pages/styles/Profile.module.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import thumbsUp from '../images/thumb-up.png'
-import thumbsDown from '../images/thumb-down.png'
+import thumbsUp from '../../images/thumb-up.png'
+import thumbsDown from '../../images/thumb-down.png'
 
 
 const ProfileComment = ({comment}) => {
@@ -21,12 +21,9 @@ const ProfileComment = ({comment}) => {
       }));
     })
     .catch((error) => {
-
     });
   }, [comment.GameId])
-    
-  
-
+      
   return (
       <div className={styles.userComment}>
           <div className={styles.userCommentInner} >

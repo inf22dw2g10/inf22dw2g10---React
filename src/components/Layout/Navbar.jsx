@@ -2,15 +2,15 @@ import styles from './Navbar.module.css'
 import { Link } from "react-router-dom"
 import AuthContext from "../../providers/AuthProvider";
 import { useContext } from "react";
-import SearchUser from '../SearchUser';
-import UserAvatar from '../UserAvatar';
+import SearchUser from './SearchUser';
+import UserAvatar from './UserAvatar';
 import BurgerMenu from './BurgerMenu';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from "react-hook-form"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import Balance from '../Balance';
+import Balance from './Balance';
 
 
 const Navbar = () => {
@@ -67,13 +67,9 @@ const Navbar = () => {
     });
 
 
-    const addBalanceSchema2 = yup.object().shape({
-        balance2: yup.number('Has to be a number').required('You have to insert an amount').positive('Insert a positive value'),
-    });
 
     const { register, handleSubmit, formState:{errors}} = useForm({
         resolver: yupResolver(addBalanceSchema),
-        resolver2: yupResolver(addBalanceSchema2)
     });
 
     const addBalanceSubmit = async (data) =>{    
@@ -90,7 +86,6 @@ const Navbar = () => {
               )
             window.location.reload(false)
         }catch(err){
-            console.log(err)
         }
 
     }
@@ -100,22 +95,23 @@ const Navbar = () => {
 
         <nav className={styles.navLayout}>
             <div className={styles.middleNav}>
-            {user && <SearchUser/>
-            }
-            <Link to="/" className={`${currentPath === "" ? styles.currentPageLink : ''} ${styles.navLinks}` } ><p>Store</p></Link>   
-            {user?.admin && <Link to="/admin" className={`${currentPath === "admin" ? styles.currentPageLink : ''} ${styles.navLinks}` }  ><p>Admin</p></Link>}
-            {user &&
-                <>
-                    <Link to={`/profile/${user.id}`} className={`${currentPath === "profile" ? styles.currentPageLink : ''} ${styles.navLinks}` }  ><p>Profile</p></Link>
-                    <Link className={styles.navLinks} onClick={logout}><p>Logout</p></Link>  
-                </>
-            }
-            {!user &&    
-                <>
-                <Link to="/login" className={`${currentPath === "login" ? styles.currentPageLink : ''} ${styles.navLinks}` }  ><p>Login</p></Link>
-                <Link to="/register" className={`${currentPath === "register" ? styles.currentPageLink : ''} ${styles.navLinks}` }  ><p>Register</p></Link>
-                </>
-            }
+                
+                {user && <SearchUser/>}
+                <Link to="/" className={`${currentPath === "" ? styles.currentPageLink : ''} ${styles.navLinks}` } ><p>Store</p></Link>   
+                {user?.admin && <Link to="/admin" className={`${currentPath === "admin" ? styles.currentPageLink : ''} ${styles.navLinks}` }  ><p>Admin</p></Link>}
+                {user &&
+                    <>
+                        <Link to={`/profile/${user.id}`} className={`${currentPath === "profile" || currentPath === "editProfile"  ? styles.currentPageLink : ''} ${styles.navLinks}` }  ><p>Profile</p></Link>
+                        <Link className={styles.navLinks} onClick={logout}><p>Logout</p></Link>  
+                    </>
+                }
+                {!user &&    
+                    <>
+                    <Link to="/login" className={`${currentPath === "login" ? styles.currentPageLink : ''} ${styles.navLinks}` }  ><p>Login</p></Link>
+                    <Link to="/register" className={`${currentPath === "register" ? styles.currentPageLink : ''} ${styles.navLinks}` }  ><p>Register</p></Link>
+                    </>
+                }
+
             </div>
             {user &&
                 <div className={styles.userNav}>

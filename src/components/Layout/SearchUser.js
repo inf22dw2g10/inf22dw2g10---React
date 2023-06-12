@@ -1,4 +1,4 @@
-import styles from './styles/SearchUser.module.css'
+import styles from './SearchUser.module.css'
 import axios from "axios";
 import { useState} from "react";
 import { Link } from "react-router-dom";

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import styles from '../pages/styles/Profile.module.css'
+import styles from '../../pages/styles/Profile.module.css'
 
 const ProfileGames = ({game}) => {
 
@@ -15,9 +15,3 @@ const ProfileGames = ({game}) => {
 }
 
 export default ProfileGames
-
-/*
-
-                <img src={game.cover} alt={game.title} className={styles.userGameImg}/>
-
-                */

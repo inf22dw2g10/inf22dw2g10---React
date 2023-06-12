@@ -3,7 +3,7 @@ import AuthContext from "../../providers/AuthProvider";
 import styles from './BurgerMenu.module.css'
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import SearchUser from '../SearchUser';
+import SearchUser from './SearchUser';
 
 const BurgerMenu = () => {
   
@@ -37,7 +37,8 @@ const BurgerMenu = () => {
         {user?.admin && <li><Link to="/admin" className={`${currentPath === "admin" ? styles.currentPageLink : ''} ${styles.navLinks}` }  >Admin</Link></li>}
         {user &&
                 <>
-                  <li><Link to="/profile" className={`${currentPath === "profile" ? styles.currentPageLink : ''} ${styles.navLinks}` }  >Profile</Link></li>
+                  <li><Link to={`/profile/${user.id}`} className={`${currentPath === "profile" ? styles.currentPageLink : ''} ${styles.navLinks}` }  >Profile</Link></li>
+                  <li><Link to="/editprofile" className={`${currentPath === "editprofile" ? styles.currentPageLink : ''} ${styles.navLinks}` }  >Edit Profile</Link></li>
                   <li><Link className={styles.navLinks} onClick={logout}>Logout</Link></li>
                 </>
         }

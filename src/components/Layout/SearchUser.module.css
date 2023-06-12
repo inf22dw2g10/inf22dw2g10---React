@@ -5,33 +5,9 @@
     background-color: rgb(30,30,30);
     width: 100%;
     margin-right:3rem;
-    margin-left: -1.5rem;
-}/*
-.outerSearchbar::after{
-    content: "";
-    position: absolute;
-    bottom:0%;
-    right: 100%;
-    width: 0;
-    height: 0;
-    border-left: 1.5rem solid transparent;
-    border-top: 4rem solid transparent;
-    border-bottom: 4rem solid rgb(30,30,30);
-    z-index: 3;
-}*/
-
-.outerSearchbar::before{
-    content: "";
-    position: absolute;
-    top: 0%;
-    left:100%;
-    width: 0;
-    height: 0;
-    border-right: 1.5rem solid transparent;
-    border-bottom: 4rem solid transparent;
-    border-top: 4rem solid rgb(30,30,30);
-    z-index: 3;
+    border-radius: 100px;
 }
+
 
 
 .inputSearchUsers{
@@ -42,6 +18,8 @@
     outline: none;
     border: 0;
     color:white;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
 
 }
 
@@ -63,7 +41,6 @@
     border-bottom: 0px;
     background-color: rgb(45,45,45);
     color:white;
-
     justify-content:left;
 }
 .innerSearchbarUsers > a:last-of-type {
@@ -88,4 +65,16 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+@media only screen and (max-width: 1160px) {
+
+    .outerSearchbar{
+        margin:0;
+    }
+
+    .outerSearchbar::before{
+        border:0;
+    }
+
 }

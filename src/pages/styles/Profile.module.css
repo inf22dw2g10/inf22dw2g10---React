@@ -9,6 +9,7 @@
     width: 55%;
     background-color: rgb(70,70,70,0.8);
     padding: 1rem 2.5rem;
+    border-radius:2px;
 }
 .profileMain{
     display: flex;
@@ -20,9 +21,10 @@
     column-gap: 2rem;
     align-items:start;
 }
-
 .profileAvatar{
+    border: 2px solid black;
     width: 100%;
+    border-radius: 2px;
 }
 .userDescription{
     width: 100%;
@@ -46,6 +48,8 @@
     color:rgb(0, 138, 100);
     font-weight: 600;
     font-size: 1.2rem;
+    border-radius: 2px;
+
 }
 .editProfileButton a:hover{
     background-color: rgb(70,70,70);
@@ -56,7 +60,7 @@
     color:rgb(0, 138, 100);
 }
 .userGamesListContainer, .userCommentsListContainer{
-    margin: 2rem 0;
+    margin: 1rem 0;
     position: relative;
 }
 .userGamesListContainer h3, .userCommentsListContainer h3{
@@ -99,8 +103,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 2px solid black;
+    border: 2px solid rgb(30,30,30);
     overflow: hidden;
+    border-radius: 2px;
 }
 
 .userComment{
@@ -110,9 +115,9 @@
     position: relative;
     scroll-snap-align: start;
     flex: 0 0 100%;
-    border: 2px solid rgb(30,30,30);
     margin:0 1%;
 }
+
 .userCommentInner{
     width: 100%;
     text-decoration: none;
@@ -123,21 +128,22 @@
     transition: 0.5s all ease;
     position: relative;
     width: 40%;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
 }
 .commmentContentContainer{
     transition: 0.5s all ease;
     width: 60%;
-    background-color: rgb(30,30,30);
-    padding-top: 1.5rem;
-    border-left: 2px solid white;
+    background-color: rgba(30,30,30,0.7);
+    padding-top: 0.5rem;
+    border-top-right-radius: 2px; 
+    border-bottom-right-radius: 2px; 
 }
 
 .commmentContent{
     height: 100%;
-    background-color: rgb(30,30,30);
     padding: 0 1.5rem;
     overflow: auto;
-
 }
 
 .commmentGameCover span{
@@ -145,13 +151,14 @@
     width: 100%;
     text-align: center;
     left:0;
-    top:0;
+    bottom:0;
     position: absolute;
     color: white;
     height: 1.5rem;
     font-size: 1rem;
-    background-color: rgb(30,30,30);
+    background-color: rgba(30,30,30,0.7);
     color:white;
+    border-bottom-left-radius: 2px;
 }
 .commmentContent p{
     word-break: break-all;
@@ -168,17 +175,13 @@
 .commentsRating{
     transform:rotateY(180deg);
     height: 2.5rem;
-    width: 2.5rem;
 }
 .commmentContentGameName{
     font-size: large;
     display: none;
     font-weight: bold;
 }
-.userComment{
-    border: 2px solid white;
-}
-.userGame:hover, .userComment:hover, .userComment:hover .commmentContentContainer {
+.userGame:hover {
     border-color: rgb(0, 138, 100) ;
 }
 .gamesLeftArrow, .commentsLeftArrow{
@@ -239,8 +242,9 @@
         display: none;
     }
 
-    .commmentContent{
+    .commmentContentContainer{
         width: 100%;
+        padding-top: 1.5rem;
     }
 
 }

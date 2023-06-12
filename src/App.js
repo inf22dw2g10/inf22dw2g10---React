@@ -6,8 +6,8 @@ import Game from "./pages/Game";
 import NotFoundPage from "./pages/NotFoundPage"
 import Register from "./pages/Register";
 import { AuthContextProvider } from "./providers/AuthProvider";
-import ProtectedRoute from "./components/ProtectedRoute";
-import CheckLogin from "./components/CheckLogin";
+import ProtectedRoute from "./components/Authentication/ProtectedRoute";
+import CheckLogin from "./components/Authentication/CheckLogin";
 import Profile from "./pages/Profile";
 import Layout from "./components/Layout/Layout";
 import AdminDashBoard from './pages/AdminDashboard'

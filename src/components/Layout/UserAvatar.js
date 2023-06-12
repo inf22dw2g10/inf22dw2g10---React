@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import axios from "axios";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner";
 
 const UserAvatar = () => {
 

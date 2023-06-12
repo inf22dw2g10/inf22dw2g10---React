@@ -1,10 +1,10 @@
 
-import StoreGame from '../components/StoreGame'
+import StoreGame from '../components/Store/StoreGame'
 import axios from "axios";
 import { useQuery } from 'react-query';
 import styles from './styles/Store.module.css'
 import LoadingPage from './LoadingPage';
-import SearchGame from '../components/SearchGame';
+import SearchGame from '../components/Store/SearchGame';
 
 
 const Store = () => {

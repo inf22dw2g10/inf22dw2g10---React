@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner";
 
 
 

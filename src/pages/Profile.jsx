@@ -4,9 +4,9 @@ import { useQuery } from 'react-query';
 import { useParams } from "react-router-dom";
 import styles from './styles/Profile.module.css'
 import NotFoundPage from "./NotFoundPage";
-import ProfileGames from "../components/ProfileGames";
-import ProfileComments from "../components/ProfileComments";
-import ProfileInfo from "../components/ProfileInfo";
+import ProfileGames from "../components/Profile/ProfileGames";
+import ProfileComments from "../components/Profile/ProfileComments";
+import ProfileInfo from "../components/Profile/ProfileInfo";
 import { useEffect,useContext } from "react";
 import AuthContext from '../providers/AuthProvider'
 import LoadingPage from './LoadingPage'
@@ -34,7 +34,7 @@ const Profile = () => {
     if ( error || isError ) {
         return <NotFoundPage/>
     }
-
+    
     const scrollGameLeft = () => {
         const container = document.getElementById("userGamesList");
         if (container) {
@@ -99,7 +99,6 @@ const Profile = () => {
                         <button className={styles.commentsRightArrow}  onClick={scrollCommentsRight}><img src={rightArrow} alt=">"/></button>
                     </>
                     }
-    
                 </div>
             </div>
         </div>

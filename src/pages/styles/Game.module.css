@@ -13,55 +13,165 @@
     display: flex;
     flex-direction: column;
 }
-
-.infoMain {
-    flex-grow: 1;
-    flex-direction: column;
-}
-
-.gameCoverContainer{
-    grid-template-columns: 7.5rem auto 10rem;
-    column-gap: 2rem;
-    align-items:start;
-}
-
-.gameContainer h1 {
-    margin-bottom: 1rem;
-}
-  
-.gameDescription {
+.gameDescription{
     display: flex;
+    min-height: 15rem;
 }
 
-.gameCover {
-    width: auto;
-    height: auto;
-    max-width: 40%;
-    max-height: 15rem;
+.gameCover{
+    width: 50%;
+    border-radius: 2px;
 }
-
-.gameInfo {
-    width: 60%;
+.gameBuy{
+    width: 50%;
     display: flex;
     flex-direction: column;
-    margin-left: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.gameInfo h3 {
-    margin: 0;
-    margin-bottom: 0.5rem;
+.gameDescription button {
+    padding: 0.8rem 1rem; 
+    background-color: rgb(200,200,200);
+    color:rgb(50,50,50);
+    outline: none;
+    border: 0;
 }
 
-.gameLowerDesc {
+
+.gameDescription  button{
+    cursor:pointer;
+}
+
+.gameDescription button:active{
+    background-color: rgba(50,50,50);
+    color:rgb(200,200,200);
+}
+.userCommentsListContainer{
+    margin-top: 1rem;
+    position: relative;
+}
+
+.userCommentsList{
+    background-color: rgba(30,30,30,0.5);
+    scroll-behavior: smooth;
+    scroll-snap-stop: always;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    scrollbar-width: none;
+    display: flex;
+    height: 13.5rem;
+
+}
+.userCommentsList::-webkit-scrollbar {
+    width: 0px;
+}
+
+.userComment{
+    padding: 1rem 1.5rem;
+    width: 100%;
+    transition: 0.5s all ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    scroll-snap-align: start;
+    flex: 0 0 100%;
+    margin:0 1%;
+}
+.userInfo {
+    margin-bottom: 1.5rem;
     display: flex;
     justify-content: space-between;
-    margin-top: 1rem;
+}
+.userInfo div:first-of-type{
+    display: flex;
+    align-items: center;
+}
+.userInfo img{
+    height: 3rem;
+    margin-right:1rem;
+    background-color: rgba(30,30,30,0.5);
+    border-radius: 50%;
 }
 
-.gameLowerDesc h4 {
-    margin: 0;
+.commentFormContainer > form > label > img{
+    transform:rotateY(180deg);
+    height: 2.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid transparent;
 }
 
+.ratingZ:checked + label > img{
+    border:1px solid white !important;
+}
+.ratingO:checked + label > img {
+    border:1px solid white !important;
+}
+.commentsLeftArrow{
+    height: 0.5rem;
+    position: absolute;
+    border:0;
+    background-color: transparent;
+    bottom: 55%;
+    transform: translateY(-50%);
+    left:-2.5rem;
+    cursor: pointer;
+}
+.commentsRightArrow{
+    height: 0.5rem;
+    position: absolute;
+    border:0;
+    background-color: transparent;
+    bottom: 55%;
+    transform: translateY(-50%);
+    right:-2.5rem;
+    cursor: pointer;
+}
+.commentsRightArrow img, .commentsLeftArrow img{
+    height: 2.5rem;
+}
+.commentFormContainer{
+    border-top: 1px solid white;
+    padding: 0.5rem 0;
+    min-height: 5rem;
+    background-color: rgba(30,30,30,0.5);
+}
+.commentFormContainer form {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+.commentFormContainer form input[type='radio']{
+    display: none;
+}
+
+.commentFormContainer form textarea{
+    width: 100%;
+    padding: 0.8rem 1rem; 
+    background-color: rgba(50,50,50,0.9);
+    outline: none;
+    border: 0;
+    color:white;
+    margin: 0 0.5rem;
+    resize: none;
+}
+.commentFormContainer form input[type='submit']{
+    margin: 0.5rem 0;
+    padding: 0.8rem 1rem; 
+    background-color: rgba(50,50,50,0.9);
+    outline: none;
+    border: 0;
+    color:white;
+    cursor: pointer;
+}
+.commentFormContainer form input[type='submit']:hover{
+    background-color: rgba(30,30,30,0.9);
+}
+
+.commentFormContainer form textarea:focus{
+    background-color: rgba(30,30,30);
+}
 @media only screen and (max-width: 1160px) {
     .gameCoverContainer {
         grid-template-columns: 5rem auto 8rem;

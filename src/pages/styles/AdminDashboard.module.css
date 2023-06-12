@@ -1,0 +1,168 @@
+.dashboardContainer{
+    background-color: rgb(70,70,70,0.8);
+    margin: 0 2.5rem;
+    margin-bottom: 1rem;
+    border-radius:2px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.dashboardNavigation{
+    display: flex;
+}
+.dashboardNavigation > div{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.dashboardNavigation > div > a{
+    display: flex;
+    text-decoration: none;
+    color:white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 0.5rem 0;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+}   
+
+.dashboardNavigation > div > a:hover{
+    color:rgb(0, 138, 100);
+    background-color: rgba(100,100,100,0.5);
+}   
+
+.dashboardMain{
+    display: flex;
+    flex-grow: 1;
+
+}
+
+.gamesPanel{
+    background-color: rgba(30,30,30,0.5);
+    flex-grow: 1;
+    display:flex;
+    align-content: space-evenly;
+}
+.usersPanel{
+    background-color: rgba(30,30,30,0.5);
+    flex-grow: 1;
+}
+
+.createGameContainer, .editGameContainer{
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.createGameContainer form, .editGameContainer form{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.createGameContainer form input, .editGameContainer form input{
+    margin:0.25rem 0;
+
+}
+
+.outerSearchbar{
+    position: relative;
+    min-height: 4rem;
+    text-align: right;
+    padding: 1rem 0;
+}
+
+.inputSearchGames{
+    width: 100%;
+    padding: 0.8rem 1rem; 
+    background-color: rgba(50,50,50,0.9);
+    outline: none;
+    border: 0;
+    color:white;
+}
+
+.inputSearchGames:focus{
+    background-color: rgba(30,30,30);
+}
+
+.innerSearchbar{
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    right:0%;
+
+}
+.innerSearchbar  > a{
+    text-decoration: none;
+    transition: 0.5s all ease;
+    cursor:pointer;
+    display: flex;
+    padding: 0 1rem;
+    height: 5rem;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-bottom: 0px;
+    background-color: rgb(45,45,45);
+    color:white;
+}
+.innerSearchbar > a:last-of-type {
+    border-bottom: 1px solid rgba(255,255,255,0.8);
+}
+.innerSearchbar >  a:hover{
+    border: 1px solid rgb(210,210,210);
+    border-bottom: 0px;
+    background-color: rgb(210,210,210);
+    color:rgb(45,45,45);
+}
+.innerSearchbar > a:last-of-type:hover {
+    border-bottom: 1px solid rgba(255,255,255,0.8);
+}
+.innerSearchbar > a > div{
+    display: flex;
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.imgSearchBar{
+    height: 90%;
+    width: 100%;
+    object-fit:cover;
+}
+
+.dashboardMain input, .dashboardMain textarea, .dashboardMain button {
+    padding: 0.8rem 1rem; 
+    background-color: rgb(200,200,200);
+    color:rgb(30,30,30);
+    outline: none;
+    border: 0;
+}
+
+.dashboardMain textarea{
+    resize: none;
+    height: 5rem;
+}
+
+.dashboardMain input[type="text"]:focus,.editWrapper input[type="email"]:focus,.editWrapper input[type="password"]:focus,.editWrapper textarea:focus{
+    background-color: rgb(170,170,170);
+}
+
+.dashboardMain input[type="submit"], .dashboardMain button{
+    cursor:pointer;
+}
+.dashboardMain button{
+    background-color: rgb(200,40,40);
+}
+
+.dashboardMain input[type="submit"]:active{
+    background-color: rgba(30,30,30);
+}

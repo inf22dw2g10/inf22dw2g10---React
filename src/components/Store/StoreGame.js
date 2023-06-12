@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import styles from '../pages/styles/Store.module.css'
+import styles from '../../pages/styles/Store.module.css'
 const StoreGame = ({props}) => {
 
   return (
