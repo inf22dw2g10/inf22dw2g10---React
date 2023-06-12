@@ -12,18 +12,12 @@ const AdminDashboard = () => {
       <div  className={styles.dashboardContainer}>
         <div className={styles.dashboardNavigation}>
           <div><Link onClick={()=> setPanel('games')}>Games</Link></div>
-          <div><Link onClick={()=> setPanel('users')}>Users</Link></div>
         </div>
         <div className={styles.dashboardMain}>
           {panel === 'games' &&
             <div className={styles.gamesPanel} >
               <CreateGame/>
               <EditGame/>
-            </div>
-          }
-          {panel === 'users' &&
-            <div className={styles.usersPanel}>
-              Users
             </div>
           }
         </div>
