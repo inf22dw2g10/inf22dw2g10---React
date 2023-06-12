@@ -17,7 +17,6 @@ const CommentsInfo = ({comment}) => {
 
     }, [comment])
     
-
     return (
         <div className={styles.userComment}>
             <div className={styles.userInfo}>   

@@ -18,7 +18,7 @@ const EditDescription = ({description}) => {
   
   
 
-  const { register, handleSubmit, formState:{errors}} = useForm({
+  const { register, handleSubmit, formState:{errors}, reset} = useForm({
       resolver: yupResolver(changeDescriptionSchema)
   });
 
@@ -34,6 +34,7 @@ const EditDescription = ({description}) => {
             withCredentials: true
           })
           setDescriptionChangeSuccessful(true)
+          reset()
       }catch(err){
           setAxiosError(err.message)
       }

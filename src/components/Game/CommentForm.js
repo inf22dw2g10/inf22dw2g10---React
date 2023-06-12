@@ -14,8 +14,6 @@ const CommentForm = ({gameId}) => {
         rating: yup.number().min(0).max(1).required()
     });
       
-      
-    
     const { register, handleSubmit} = useForm({
         resolver: yupResolver(commentSchema)
     });
@@ -34,7 +32,7 @@ const CommentForm = ({gameId}) => {
                     withCredentials: true
                 }
             )
-
+            window.location.reload(false)
         }catch(err){
 
         }
@@ -44,14 +42,12 @@ const CommentForm = ({gameId}) => {
     return (
         <div className={styles.commentFormContainer}>
                 <form action="" method="post" onSubmit={handleSubmit(commentSubmit)}>
-
                     <input type="radio" name="rating" value="0" className={styles.ratingZ} id='ratingZ' {...register('rating')}/>
                     <label htmlFor='ratingZ'><img src={thumbsDown} alt='Thumbs Down'/></label>
                     <input type="radio" className={styles.ratingO} id='ratingO'  name="rating" value="1" {...register('rating')}/>
                     <label htmlFor='ratingO'><img src={thumbsUp} alt='Thumbs Up'/></label>
                     <textarea name="comment" {...register('text')}  autoComplete='off'/>
                     <input type="submit" value="Send Comment" />
-
                 </form>
         </div>
     )

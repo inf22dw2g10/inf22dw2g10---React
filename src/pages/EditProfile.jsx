@@ -11,7 +11,7 @@ const EditProfile = () => {
 
     // Get User Data
 
-    const { data: myData, isLoading, error, isError } = useQuery("myData", () => {
+    const { data: myData, isLoading, error, isError } = useQuery("myData", async () => {
         return axios.get(`http://${window.location.hostname}:5000/users/mydata`,{withCredentials:true}).then((res) => res.data);
     },{ 
         retry: false

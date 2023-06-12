@@ -18,7 +18,7 @@ const EditName = ({username}) => {
     
     
 
-    const { register, handleSubmit, formState:{errors}} = useForm({
+    const { register, handleSubmit, formState:{errors}, reset} = useForm({
         resolver: yupResolver(changeNameSchema)
     });
 
@@ -34,6 +34,7 @@ const EditName = ({username}) => {
                 withCredentials: true
             })
             setNameChangeSuccessful(true)
+            reset()
         }catch(err){
             setAxiosError(err.message)
         }
