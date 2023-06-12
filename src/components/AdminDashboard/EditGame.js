@@ -77,7 +77,7 @@ const EditGame = () => {
 
   return (
     <div className={styles.editGameContainer}>
-        <h2>Edit - {game.title}</h2>
+        <h2>Edit Game</h2>
         <SearchGame onPropChange={handlePropChange}/>
         <form action="" method="post" onSubmit={handleSubmit(editGameSubmit)}>
             <input type="text" name="title"  {...register('title')} placeholder={game.title}  autoComplete='off'/>
