@@ -157,8 +157,7 @@
     resize: none;
 }
 .commentFormContainer form input[type='submit']{
-    margin: 0.5rem 0;
-    padding: 0.8rem 1rem; 
+    padding: 1.75rem 1rem; 
     background-color: rgba(50,50,50,0.9);
     outline: none;
     border: 0;
