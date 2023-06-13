@@ -10,7 +10,6 @@ import axios from 'axios';
 import { useForm } from "react-hook-form"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import Balance from './Balance';
 
 
 const Navbar = () => {
@@ -141,7 +140,7 @@ const Navbar = () => {
             </div>
             {user &&
                 <div className={styles.mobileUserNav}>
-                    <Link to={`/profile/${user?.id}`}>{user && <UserAvatar/>}</Link>&nbsp;<span><Link to={`/profile/${user?.id}`}>{user?.username}</Link><div className={styles.addBalance} id="addBalanceButtonMobile" onClick={openBalanceModal}><Balance/>€</div></span>
+                    <Link to={`/profile/${user?.id}`}>{user && <UserAvatar/>}</Link>&nbsp;<span><Link to={`/profile/${user?.id}`}>{user?.username}</Link><div className={styles.addBalance} id="addBalanceButtonMobile" onClick={openBalanceModal}>{balance}€</div></span>
                     <div className={styles.dropdownContentMobile} id="dropdownContentMobile">
                         <div id="addBalanceContainerMobile">
                             <form action="" method="post" id="addBalanceFormMobile" onSubmit={handleSubmit(addBalanceSubmit)}>
