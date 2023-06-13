@@ -12,6 +12,7 @@ const CommentsInfo = ({comment}) => {
         axios.get(`http://${window.location.hostname}:5000/users/profile/${comment.UserId}`, {withCredentials:true}).then((res) => {
             setUser(res.data)
         }).catch((err) => {
+            console.log(err)
         });
 
 

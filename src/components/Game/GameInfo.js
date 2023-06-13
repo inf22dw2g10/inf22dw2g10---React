@@ -21,7 +21,7 @@ const GameComment = ({gameId}) => {
     const buyGame = async () =>{    
         await axios.get(`http://${window.location.hostname}:5000/users/addGame/${gameId}`, {withCredentials:true})
         .then((result) => {
-            
+            window.location.reload(false)
         })
         .catch((err) => {
             setAxiosError('Error buying the game')

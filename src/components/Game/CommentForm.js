@@ -34,7 +34,7 @@ const CommentForm = ({gameId, commentCreate}) => {
             )
             commentCreate()
         }catch(err){
-
+            console.log(err)
         }
 
     }

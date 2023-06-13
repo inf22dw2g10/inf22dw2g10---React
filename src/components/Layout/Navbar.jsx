@@ -86,14 +86,19 @@ const Navbar = () => {
                 } 
             )
             setBalance(null)
+            
         }catch(err){
         }
     }
 
     useEffect(() => {
-        axios.get(`http://${window.location.hostname}:5000/users/balance`, {withCredentials: true}).then((res) => {
-            setBalance(res.data.balance)
-        })
+        if(user){
+            axios.get(`http://${window.location.hostname}:5000/users/balance`, {withCredentials: true}).then((res) => {
+                setBalance(res.data.balance)
+            })
+            .catch((err)=>{
+            })
+        }
     }, [balance])
 
     return (

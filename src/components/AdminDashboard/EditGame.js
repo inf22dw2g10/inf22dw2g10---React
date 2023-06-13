@@ -53,6 +53,9 @@ const EditGame = () => {
       ).then((result) => {
         setEditSuccessful(true)
       })
+      .catch((err)=>{
+
+      })
     }
     reset();
   }
@@ -70,7 +73,6 @@ const EditGame = () => {
     axios.get(`http://${window.location.hostname}:5000/games/${gameId}`).then((res) => {
       setGame(res.data)
     }).catch((err) => {
-      console.log(err)
     });
     reset();
   }, [gameId,reset, editSuccessful])

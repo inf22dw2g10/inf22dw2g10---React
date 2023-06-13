@@ -7,12 +7,6 @@ import AuthContext from '../../providers/AuthProvider'
 const ProfileInfo = ({userProfile}) => {
   const { user } = useContext(AuthContext);
 
-
-  
-
-
-
-  
   
   const openModal =()=>{
     var modal = document.getElementById("myModal");
