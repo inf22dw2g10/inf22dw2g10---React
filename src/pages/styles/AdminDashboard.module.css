@@ -65,9 +65,8 @@
 }
 
 
-.createGameContainer form input, .editGameContainer form input{
+.createGameContainer form input, .editGameContainer form input, .createGameContainer form textarea, .editGameContainer form textarea, .editGameContainer button{
     margin:0.25rem 0;
-
 }
 
 .outerSearchbar{
@@ -165,4 +164,9 @@
 
 .dashboardMain input[type="submit"]:active{
     background-color: rgba(30,30,30);
+    color:rgb(170,170,170);
+}
+
+.dashboardMain button:active{
+    background-color: rgb(180,20,20);
 }

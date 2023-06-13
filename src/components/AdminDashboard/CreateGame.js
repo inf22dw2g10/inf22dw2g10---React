@@ -19,7 +19,7 @@ const CreateGame = () => {
   
   
 
-  const { register, handleSubmit ,} = useForm({
+  const { register, handleSubmit , reset} = useForm({
     resolver: yupResolver(createGameSchema)
   });
 
@@ -38,7 +38,7 @@ const CreateGame = () => {
         withCredentials: true
       }
     ).then((result) => {
-      window.location.reload(false)
+      reset()
     })
   }
 

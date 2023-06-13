@@ -7,6 +7,29 @@ import AuthContext from '../../providers/AuthProvider'
 const ProfileInfo = ({userProfile}) => {
   const { user } = useContext(AuthContext);
 
+
+  
+
+
+
+  
+  
+  const openModal =()=>{
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+  }
+  const closeModal =()=>{
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  } 
+
   return (
     <div className={styles.profileMain}>
       <div className={styles.profileAvatarContainer}>
@@ -18,7 +41,15 @@ const ProfileInfo = ({userProfile}) => {
         </p>
       </div>
       <div className={styles.userDescription}>
-        <p>{userProfile.description ? userProfile.description : "No description"} </p>
+        <p>{userProfile.description ? userProfile.description : "No description"}</p>
+        <p onClick={openModal} className={styles.descriptionLink}>See description</p>
+        <div id="myModal" className={styles.modal}>
+          <div className={styles.modalContent}>
+            <span className={styles.close} onClick={closeModal}> &times;</span>
+            <h3>Description</h3>
+            <p>{userProfile.description ? userProfile.description : "No description"}</p>
+          </div>
+        </div>
       </div>
     </div>
     

@@ -42,7 +42,7 @@ const SearchGame = ({ onPropChange }) => {
 
     return (
         <div className={styles.outerSearchbar} onBlur={hideSearchBar}>
-            <input type="text" name="" id="searchGamesBar" className={styles.inputSearchGames} onChange={searchGames} onFocus={searchGames}  placeholder="Search Game..."/>
+            <input type="text" name="" id="searchGamesBar" className={styles.inputSearchGames} onChange={searchGames} onFocus={searchGames}  placeholder="Choose game to edit/delete..."/>
             <div className={styles.innerSearchbar}  >
               
               {searchedGames !== null && 
