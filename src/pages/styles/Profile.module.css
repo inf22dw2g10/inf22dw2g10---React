@@ -26,16 +26,26 @@
     border-radius: 2px;
 }
 .userDescription{
-    margin: 1rem 0;
+    margin-top:1rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(30,30,30,0.5);
     width: 100%;
-    text-overflow: ellipsis;
-    overflow-wrap: break-word;
-    word-break:break-all;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-height: 4.5rem;
+    max-height: 8rem;
+    
+}
+.userDescription p{
+    text-overflow: ellipsis;
     overflow: hidden;
+    word-wrap: break-word;
+    margin: 0.25rem 0;
+}
+.descriptionLink{
+    color:rgb(0, 138, 100);
+    text-decoration:none;
+    cursor: pointer;
 }
 .editProfileButton{
     margin-top: 5.5rem;
@@ -127,18 +137,26 @@
 .commmentGameCover{
     transition: 0.5s all ease;
     position: relative;
-    width: 40%;
+    width: 45%;
+    max-width: 45%;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
+}
+
+.commmentGameCover span{
+    text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
 }
 .commmentContentContainer{
     transition: 0.5s all ease;
-    width: 60%;
+    width: 55%;
     background-color: rgba(30,30,30,0.7);
     padding-top: 0.5rem;
+    padding-bottom: 1.5rem;
     border-top-right-radius: 2px; 
-    border-bottom-right-radius: 2px; 
+    border-bottom-right-radius: 2px;
+
 }
 
 .commmentContent{
@@ -210,6 +228,42 @@
 .gamesRightArrow img, .gamesLeftArrow img, .commentsRightArrow img, .commentsLeftArrow img{
     height: 2.5rem;
 }
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.2);
+}
+
+/* Modal Content/Box */
+.modalContent {
+    background-color: rgba(30,30,30,1);
+    margin: 12.5% auto; 
+    padding: 20px;
+    width: 50%;
+    color:white;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+} 
 
 @media only screen and (max-width: 1160px) {
     .editProfileButton{
