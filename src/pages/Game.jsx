@@ -12,7 +12,7 @@ import rightArrow from '../images/right-arrow.png'
 const Game = () => {
     const { gameId } = useParams();
 
-    const { data: comments, isLoading, isError, error } = useQuery("comment", async() => {
+    const { data: comments, isLoading, isError, error, refetch } = useQuery("comment", async() => {
         return axios.get(`http://${window.location.hostname}:5000/comments/game/${gameId}`).then((res) => res.data);
     },{ 
         retry: false
@@ -38,6 +38,11 @@ const Game = () => {
             container.scrollLeft += container.offsetWidth ;
         }
     }
+
+    const handleNewComment = () =>{
+        refetch()
+    }
+    
     return (
         <div className={styles.gameContainerWrapper}>
             <div className={styles.gameContainer}>
@@ -57,7 +62,7 @@ const Game = () => {
                     </>
                     }
                 </div>           
-                <CommentForm gameId={gameId}/>
+                <CommentForm gameId={gameId} commentCreate={handleNewComment}/>
             </div>
         </div>
         

@@ -1,7 +1,7 @@
 import styles from './Navbar.module.css'
 import { Link } from "react-router-dom"
 import AuthContext from "../../providers/AuthProvider";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import SearchUser from './SearchUser';
 import UserAvatar from './UserAvatar';
 import BurgerMenu from './BurgerMenu';
@@ -14,6 +14,8 @@ import Balance from './Balance';
 
 
 const Navbar = () => {
+
+    const [balance, setBalance] = useState(null)
 
     const location = useLocation();
     let currentPath = location.pathname;
@@ -83,12 +85,17 @@ const Navbar = () => {
                 },{
                   withCredentials: true
                 } 
-              )
-            window.location.reload(false)
+            )
+            setBalance(null)
         }catch(err){
         }
-
     }
+
+    useEffect(() => {
+        axios.get(`http://${window.location.hostname}:5000/users/balance`, {withCredentials: true}).then((res) => {
+            setBalance(res.data.balance)
+        })
+    }, [balance])
 
     return (
         <>
@@ -115,7 +122,7 @@ const Navbar = () => {
             </div>
             {user &&
                 <div className={styles.userNav}>
-                    <Link to={`/profile/${user?.id}`}>{user && <UserAvatar/>}</Link>&nbsp;<span><Link to={`/profile/${user?.id}`}>{user?.username}</Link><div className={styles.addBalance} id="addBalanceButton" onClick={openBalanceModal}><Balance/>€</div></span>
+                    <Link to={`/profile/${user?.id}`}>{user && <UserAvatar/>}</Link>&nbsp;<span><Link to={`/profile/${user?.id}`}>{user?.username}</Link><div className={styles.addBalance} id="addBalanceButton" onClick={openBalanceModal}>{balance}€</div></span>
                     <div className={styles.dropdownContent} id="dropdownContent">
                         <div id="addBalanceContainer">
                             <form action="" method="post" id="addBalanceForm" onSubmit={handleSubmit(addBalanceSubmit)}>

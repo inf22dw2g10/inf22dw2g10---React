@@ -1,9 +1,12 @@
 import styles from '../../pages/styles/Game.module.css'
 import axios from 'axios';
 import { useQuery } from 'react-query';
+import { useState } from 'react';
 
 
 const GameComment = ({gameId}) => {
+
+    const [axiosError, setAxiosError] = useState(null)
 
     const { data: game, isLoading, error } = useQuery("game", async() => {
         return axios.get(`http://${window.location.hostname}:5000/games/${gameId}`).then((res) => res.data);
@@ -18,9 +21,10 @@ const GameComment = ({gameId}) => {
     const buyGame = async () =>{    
         await axios.get(`http://${window.location.hostname}:5000/users/addGame/${gameId}`, {withCredentials:true})
         .then((result) => {
-            window.location.reload(false);
+            
         })
         .catch((err) => {
+            setAxiosError('Error buying the game')
         });
     }
 
@@ -33,6 +37,8 @@ const GameComment = ({gameId}) => {
                     <p>{game.description}</p>
                     <h4>{game.price === 0 ? "Free" : `${game?.price}€`}</h4>
                     <button onClick={buyGame}> Buy Game</button>
+                    {axiosError && 
+                    <p className={styles.errorMessage}>{axiosError}</p>}
                 </div>
             </div>
         </>

@@ -22,7 +22,7 @@ const EditPassword = () => {
   
   
 
-  const { register, handleSubmit, formState:{errors}, reset} = useForm({
+  const { register, handleSubmit, formState:{errors}} = useForm({
       resolver: yupResolver(changePasswordSchema)
   });
 
@@ -42,7 +42,7 @@ const EditPassword = () => {
               withCredentials: true
           })
           setPasswordChangeSuccessful(true)
-          reset()
+
       }catch(err){
           setAxiosError(err.message)
       }

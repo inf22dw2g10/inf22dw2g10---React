@@ -39,7 +39,9 @@
     outline: none;
     border: 0;
 }
-
+.errorMessage{
+    color:red;
+}
 
 .gameDescription  button{
     cursor:pointer;

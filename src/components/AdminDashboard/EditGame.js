@@ -9,7 +9,7 @@ import * as yup from 'yup'
 const EditGame = () => {
 
   const [editSuccessful, setEditSuccessful] = useState(false)
-  const [gameId, setGameId] = useState(1)
+  const [gameId, setGameId] = useState(null)
   const [game, setGame] = useState({})
 
   const handlePropChange = (gameId) => {
@@ -78,7 +78,7 @@ const EditGame = () => {
   return (
     <div className={styles.editGameContainer}>
         <SearchGame onPropChange={handlePropChange}/>
-        <h2>Edit - {game.title}</h2>
+        <h2>Edit {game.title}</h2>
         <br/>
         <form action="" method="post" onSubmit={handleSubmit(editGameSubmit)}>
             <input type="text" name="title"  {...register('title')} placeholder={game.title}  autoComplete='off'/>

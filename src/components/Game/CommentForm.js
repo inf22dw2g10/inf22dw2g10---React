@@ -7,7 +7,7 @@ import thumbsUp from '../../images/thumb-up.png'
 import thumbsDown from '../../images/thumb-down.png'
 
 
-const CommentForm = ({gameId}) => {
+const CommentForm = ({gameId, commentCreate}) => {
 
     const commentSchema = yup.object().shape({
         text: yup.string().required(),
@@ -32,7 +32,7 @@ const CommentForm = ({gameId}) => {
                     withCredentials: true
                 }
             )
-            window.location.reload(false)
+            commentCreate()
         }catch(err){
 
         }
