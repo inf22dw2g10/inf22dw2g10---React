@@ -1,0 +1,38 @@
+version: '3'
+services:
+  db:
+    image: mysql:5-debian
+    restart: always
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: Jogos
+    ports:
+      - '3306:3306'
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    expose:
+      - 5000
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: 123456
+      DB_NAME: Jogos
+    ports:
+      - '5000:5000'
+  frontend:
+    build:
+      context: ./react
+      dockerfile: Dockerfile
+    expose:
+      - 3000
+    depends_on:
+      - api
+    ports:
+      - '3000:3000'
