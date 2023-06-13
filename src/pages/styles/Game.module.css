@@ -95,20 +95,24 @@
     background-color: rgba(30,30,30,0.5);
     border-radius: 50%;
 }
-
-.commentFormContainer > form > div > label > img{
+.commentFormContainer > form > div > div > label {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.commentFormContainer > form > div > div > label > img{
     transform:rotateY(180deg);
     height: 2.5rem;
-    cursor: pointer;
-    border-radius: 50%;
-    border: 1px solid transparent;
 }
 
-.ratingZ:checked + label > img{
-    border:1px solid white !important;
+.ratingZ:checked + label {
+    background-color: rgba(120,120,120,0.5);
 }
-.ratingO:checked + label > img {
-    border:1px solid white !important;
+.ratingO:checked + label{
+    background-color: rgba(120,120,120,0.5);
 }
 .commentsLeftArrow{
     height: 0.5rem;
@@ -140,23 +144,34 @@
     background-color: rgba(30,30,30,0.5);
 }
 .commentFormContainer form {
-    display: flex;
     align-items: center;
     padding: 0 1rem;
 }
+
+.commentFormContainer form div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.commentFormContainer form div div{
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
 .commentFormContainer form input[type='radio']{
     display: none;
 }
-.commentFormContainer form input[type='text']{
-    margin: 0.25rem 0;
+.commentFormContainer form textarea{
+    padding: 1rem 1rem;
     width: 100%;
-    padding: 0.8rem 1rem; 
     background-color: rgba(50,50,50,0.9);
     outline: none;
     border: 0;
     color:white;
-    margin: 0 0.5rem;
     resize: none;
+    margin:  0.5rem 0 1rem 0;
 }
 .commentFormContainer form input[type='submit']{
     margin: 0.25rem 0;
@@ -171,7 +186,7 @@
     background-color: rgba(30,30,30,0.9);
 }
 
-.commentFormContainer form input[type='text']:focus{
+.commentFormContainer form textarea:focus{
     background-color: rgba(30,30,30);
 }
 @media only screen and (max-width: 1160px) {
