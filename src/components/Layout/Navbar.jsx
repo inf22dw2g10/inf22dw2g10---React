@@ -105,9 +105,8 @@ const Navbar = () => {
         <>
 
         <nav className={styles.navLayout}>
+            {user && <SearchUser/>}
             <div className={styles.middleNav}>
-                
-                {user && <SearchUser/>}
                 <Link to="/" className={`${currentPath === "" ? styles.currentPageLink : ''} ${styles.navLinks}` } ><p>Store</p></Link>   
                 {user?.admin && <Link to="/admin" className={`${currentPath === "admin" ? styles.currentPageLink : ''} ${styles.navLinks}` }  ><p>Admin</p></Link>}
                 {user &&

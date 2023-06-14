@@ -3,9 +3,9 @@
     min-height: 4rem;
     margin: 0;
     background-color: rgb(30,30,30);
-    width: 100%;
-    margin-right:3rem;
-    border-radius: 100px;
+    width: calc(25% + 4rem);
+    margin-left:2.5rem;
+
 }
 
 
