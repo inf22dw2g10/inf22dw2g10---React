@@ -70,10 +70,12 @@ const EditGame = () => {
 
   useEffect(() => {
     setEditSuccessful(false)
-    axios.get(`http://${window.location.hostname}:5000/games/${gameId}`).then((res) => {
-      setGame(res.data)
-    }).catch((err) => {
-    });
+    if(gameId != null){
+      axios.get(`http://${window.location.hostname}:5000/games/${gameId}`).then((res) => {
+        setGame(res.data)
+      }).catch((err) => {
+      });
+    }
     reset();
   }, [gameId,reset, editSuccessful])
 

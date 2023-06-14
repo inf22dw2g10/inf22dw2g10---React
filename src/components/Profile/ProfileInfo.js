@@ -36,7 +36,7 @@ const ProfileInfo = ({userProfile}) => {
       </div>
       <div className={styles.userDescription}>
         <p>{userProfile.description ? userProfile.description : "No description"}</p>
-        <p onClick={openModal} className={styles.descriptionLink}>See description</p>
+        <span onClick={openModal}className={styles.descriptionLink} >See description</span>
         <div id="myModal" className={styles.modal}>
           <div className={styles.modalContent}>
             <span className={styles.close} onClick={closeModal}> &times;</span>

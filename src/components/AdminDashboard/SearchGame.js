@@ -37,7 +37,6 @@ const SearchGame = ({ onPropChange }) => {
     const changeGame = (gameId) => {
         onPropChange(gameId); 
         setSearchedGames(null)
-
     }
 
     return (

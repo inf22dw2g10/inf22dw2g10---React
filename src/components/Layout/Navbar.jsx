@@ -99,7 +99,7 @@ const Navbar = () => {
             .catch((err)=>{
             })
         }
-    }, [balance])
+    }, [balance,user])
 
     return (
         <>

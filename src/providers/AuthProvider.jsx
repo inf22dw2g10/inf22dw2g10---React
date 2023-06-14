@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
     setUser(jwtDecode(Cookies.get("token")))
     navigate("/");
   };
- 
+  
   const logout = async () => {
     try{
       await axios.get(`http://${window.location.hostname}:5000/users/logout`, { withCredentials: true });
