@@ -7,7 +7,6 @@ import NotFoundPage from "./pages/NotFoundPage"
 import Register from "./pages/Register";
 import { AuthContextProvider } from "./providers/AuthProvider";
 import ProtectedRoute from "./components/Authentication/ProtectedRoute";
-import CheckLogin from "./components/Authentication/CheckLogin";
 import Profile from "./pages/Profile";
 import Layout from "./components/Layout/Layout";
 import AdminDashBoard from './pages/AdminDashboard'
@@ -24,13 +23,6 @@ function App() {
                 <Routes>
                   <Route exact path="/" element={<Store/>} />
                   <Route path="/game/:gameId" element={<Game/>}/>
-                  <Route path="/check-login"
-                    element={
-                      <ProtectedRoute accessBy="non-authenticated">
-                        <CheckLogin/>
-                      </ProtectedRoute>
-                    }
-                  ></Route>
                   <Route path="/login"
                     element={
                       <ProtectedRoute accessBy="non-authenticated">

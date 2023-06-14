@@ -17,7 +17,7 @@ export const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const login = async () => {
-    setUser(jwtDecode(Cookies.get("token")))
+    setUser(jwtDecode(Cookies?.get("token")))
     navigate("/");
   };
   

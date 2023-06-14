@@ -3,20 +3,19 @@ import gitHublogo from '../images/github-logo.png';
 import isEmailImg from '../images/swap3.png';
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import styles from './styles/Forms.module.css'
+import AuthContext from '../providers/AuthProvider'
+import { useContext  } from "react";
 
 const Login = () => {
 
+  const { login } = useContext(AuthContext);
   const [emailLogin, setEmailLogin] = useState(false);
   const [axiosError, setAxiosError] = useState(null);
   const [oauthError, setOauthError] = useState(null);
-  
-
-  const navigate = useNavigate();
 
   const loginSchema = yup.object().shape({
     emailLogin: yup.boolean().required(),
@@ -62,7 +61,7 @@ const Login = () => {
             withCredentials: true
           }
         )
-        navigate("/check-login");
+        login()
 
       }else{
         await axios.post(
@@ -74,7 +73,7 @@ const Login = () => {
             withCredentials: true
           }
         )
-        navigate("/check-login");
+        login()
       }
       
     }catch(err){
