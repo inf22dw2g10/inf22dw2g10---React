@@ -34,7 +34,7 @@ const GameComment = ({gameId}) => {
                 <div className={styles.gameCover} style={{ backgroundColor: "rgb(70,70,70)", backgroundImage: `url(${game.cover})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} ></div>
                 <div className={styles.gameBuy}>
                     <h3>{game.title}</h3>
-                    <p>{game.description}</p>
+                    <p style={{textAlign:'center'}}>{game.description}</p>
                     <h4>{game.price === 0 ? "Free" : `${game?.price}€`}</h4>
                     <button onClick={buyGame}> Buy Game</button>
                     {axiosError && 

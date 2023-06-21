@@ -171,3 +171,38 @@
         margin: 1rem 5%;
     }
 }
+.navContainer{
+    text-align: center;
+    margin: 1rem 0 2rem 0;
+}
+
+/* Styling for the navigation container */
+.ulPageNav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Styling for each navigation item */
+  .liPageNav {
+    display: inline-block;
+    margin-right: 2rem; 
+  }
+  
+  .buttonPageNav {
+    display: inline-block;
+    padding: 0;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border: none;
+    font-size: 1.2rem; /* Adjust the font size as desired */
+    cursor:pointer
+  }
+  
+  /* Active state for the current page */
+  .buttonPageNav.active {
+    background-color: #aaa;
+    color: #333;
+  }
+  

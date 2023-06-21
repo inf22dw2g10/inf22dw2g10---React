@@ -35,9 +35,9 @@ const Game = () => {
     const scrollCommentsRight = () => {
         const container = document.getElementById("userCommentsList");
         if (container) {
-            container.scrollLeft += container.offsetWidth ;
+            container.scrollLeft += container.offsetWidth;
         }
-    }
+    };
 
     const handleNewComment = () =>{
         refetch()
