@@ -13,7 +13,7 @@ services:
 
   api:
     build:
-      context: ./api
+      context: ../parte1
       dockerfile: Dockerfile
     expose:
       - 5000
@@ -28,7 +28,7 @@ services:
       - '5000:5000'
   frontend:
     build:
-      context: ./react
+      context: .
       dockerfile: Dockerfile
     expose:
       - 3000
